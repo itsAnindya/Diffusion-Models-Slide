@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.2)  19 FEB 2026 20:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.2)  20 FEB 2026 05:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -664,7 +664,7 @@ File: pgflibraryfadings.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))
 \sympureletters=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 39.
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 46.
  (C:\Users\parab\AppData\Local\Programs\MiKTeX\tex/latex/tools\bm.sty
 Package: bm 2025/10/21 v1.2g Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup7
@@ -932,29 +932,31 @@ Package: xparse 2025-10-09 L3 Experimental document command parser
 )
 Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
 ))
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 85.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 85.
 \@quotelevel=\count506
 \@quotereset=\count507
  (diffusion_models_slide.aux)
 \openout1 = `diffusion_models_slide.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1009,60 +1011,60 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (C:\Users\parab\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 76.
+Package hyperref Info: Link coloring OFF on input line 88.
  (diffusion_models_slide.out) (diffusion_models_slide.out)
 \@outlinefile=\write6
 \openout6 = `diffusion_models_slide.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 76.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 88.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 76.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 88.
 \symnumbers=\mathgroup11
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 76.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 88.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  OT1/mathkerncmss/m/sl --> OT1/cmss/m/it on input line 76.
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/cmss/m/it on input line 88.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/mathkerncmss/bx/sl --> OT1/cmss/m/it on input line 76.
+(Font)                  OT1/mathkerncmss/bx/sl --> OT1/cmss/m/it on input line 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 76.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 76.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 76.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 88.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 88.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 76.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 76.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 76.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 88.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 76.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 76.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 76.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 88.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 76.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 76.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 88.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 76.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 88.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 76.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 76.
+(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 76.
+(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 76.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 76.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 76.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 76.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 88.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 88.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 76.
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 88.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 76.
+(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 88.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 76.
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 88.
  (C:\Users\parab\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (C:\Users\parab\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-bibliography-dictionary-English.dict
@@ -1089,52 +1091,75 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'diffusion_models_slide.bbl' found.
  (diffusion_models_slide.bbl)
-Package biblatex Info: Reference section=0 on input line 76.
-Package biblatex Info: Reference segment=0 on input line 76.
+Package biblatex Info: Reference section=0 on input line 88.
+Package biblatex Info: Reference segment=0 on input line 88.
  (diffusion_models_slide.nav)
-Overfull \hbox (2.43333pt too wide) in paragraph at lines 97--97
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 110--110
  [] 
  []
 
 
-Overfull \vbox (56.4736pt too high) detected at line 97
+Overfull \vbox (56.4736pt too high) detected at line 110
  []
 
 [1
 
-{C:/Users/parab/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-Overfull \vbox (107.45459pt too high) detected at line 140
- []
-
-[2
+{C:/Users/parab/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (diffusion_models_slide.toc) [2
 
 ]
-Overfull \hbox (5.2899pt too wide) in paragraph at lines 195--195
- [] 
- []
-
-
-Overfull \vbox (35.65248pt too high) detected at line 195
+<images/Real_Face.png, id=106, 1003.75pt x 1003.75pt>
+File: images/Real_Face.png Graphic file (type png)
+<use images/Real_Face.png>
+Package pdftex.def Info: images/Real_Face.png  used on input line 155.
+(pdftex.def)             Requested size: 79.66649pt x 79.65837pt.
+<images/AI_Generated_Face_05.png, id=108, 1027.84pt x 1027.84pt>
+File: images/AI_Generated_Face_05.png Graphic file (type png)
+<use images/AI_Generated_Face_05.png>
+Package pdftex.def Info: images/AI_Generated_Face_05.png  used on input line 155.
+(pdftex.def)             Requested size: 79.66649pt x 79.65677pt.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 155.
+ (C:\Users\parab\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 155.
+ (C:\Users\parab\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 155.
+ (C:\Users\parab\AppData\Local\Programs\MiKTeX\tex/latex/sansmathaccent\ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
+)
+Overfull \vbox (2.70227pt too high) detected at line 155
  []
 
 [3
 
-]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 220.
- (C:\Users\parab\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 220.
- (C:\Users\parab\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 220.
- (C:\Users\parab\AppData\Local\Programs\MiKTeX\tex/latex/sansmathaccent\ot1mathkerncmss.fd
-File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
-) [4
+ <./images/Real_Face.png> <./images/AI_Generated_Face_05.png (PNG copy)>]
+File: images/Real_Face.png Graphic file (type png)
+<use images/Real_Face.png>
+Package pdftex.def Info: images/Real_Face.png  used on input line 155.
+(pdftex.def)             Requested size: 79.66649pt x 79.65837pt.
+File: images/AI_Generated_Face_05.png Graphic file (type png)
+<use images/AI_Generated_Face_05.png>
+Package pdftex.def Info: images/AI_Generated_Face_05.png  used on input line 155.
+(pdftex.def)             Requested size: 79.66649pt x 79.65677pt.
+
+Overfull \vbox (2.70227pt too high) detected at line 155
+ []
+
+[4
 
 ]
-Overfull \vbox (13.94951pt too high) detected at line 248
+File: images/Real_Face.png Graphic file (type png)
+<use images/Real_Face.png>
+Package pdftex.def Info: images/Real_Face.png  used on input line 155.
+(pdftex.def)             Requested size: 79.66649pt x 79.65837pt.
+File: images/AI_Generated_Face_05.png Graphic file (type png)
+<use images/AI_Generated_Face_05.png>
+Package pdftex.def Info: images/AI_Generated_Face_05.png  used on input line 155.
+(pdftex.def)             Requested size: 79.66649pt x 79.65677pt.
+
+Overfull \vbox (2.70227pt too high) detected at line 155
  []
 
 [5
@@ -1143,20 +1168,42 @@ Overfull \vbox (13.94951pt too high) detected at line 248
 
 ] [7
 
-]
-Overfull \hbox (43.96883pt too wide) in paragraph at lines 345--345
- [][] 
- []
-
-[8
+] [8
 
 ] [9
 
 ] [10
 
-] [11
+]
+Overfull \vbox (13.94951pt too high) detected at line 243
+ []
+
+[11
 
 ] [12
+
+] [13
+
+] [14
+
+] [15
+
+] [16
+
+]
+Overfull \hbox (43.96883pt too wide) in paragraph at lines 347--347
+ [][] 
+ []
+
+[17
+
+] [18
+
+] [19
+
+] [20
+
+] [21
 
 ]
 \tf@nav=\write7
@@ -1174,23 +1221,23 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `diffusion_models_slide.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+(rerunfilecheck)             Checksum: 6FA71EBAB779888035F1D2239B74F260;970.
 Package logreq Info: Writing requests to 'diffusion_models_slide.run.xml'.
 \openout1 = `diffusion_models_slide.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34578 strings out of 467871
- 716606 string characters out of 5418377
- 1507607 words of memory out of 5000000
- 62801 multiletter control sequences out of 15000+600000
- 643032 words of font info for 87 fonts, out of 8000000 for 9000
+ 34695 strings out of 467871
+ 718060 string characters out of 5418377
+ 1505504 words of memory out of 5000000
+ 62878 multiletter control sequences out of 15000+600000
+ 652913 words of font info for 117 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,13n,123p,1996b,1470s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\parab\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcsx1095.pk> <C:\Users\parab\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcss1000.pk> <C:\Users\parab\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcss1095.pk><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi12.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on diffusion_models_slide.pdf (12 pages, 140481 bytes).
+ <C:\Users\parab\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcsx1095.pk> <C:\Users\parab\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcss1095.pk><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi12.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on diffusion_models_slide.pdf (21 pages, 2457567 bytes).
 PDF statistics:
- 166 PDF objects out of 1000 (max. 8388607)
- 29 named destinations out of 1000 (max. 500000)
- 139 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 270 PDF objects out of 1000 (max. 8388607)
+ 56 named destinations out of 1000 (max. 500000)
+ 221 words of extra memory for PDF output out of 10000 (max. 10000000)
 

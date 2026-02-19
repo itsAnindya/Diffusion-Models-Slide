@@ -14,3 +14,6 @@ diffusion_models_slide.aux
 *.nav
 *.out
 *.gz
+*.aux
+*.log
+*.nav

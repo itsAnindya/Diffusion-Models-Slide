@@ -1,4 +1,11 @@
-\documentclass[aspectratio=169,11pt]{beamer}
+\newif\ifhandoutmode
+% \handoutmodetrue  %comment this line to enable animation
+
+\ifhandoutmode
+  \documentclass[handout, aspectratio=169,11pt]{beamer}
+\else
+  \documentclass[aspectratio=169,11pt]{beamer}
+\fi
 
 %──────────────────────────────────────────────────────────────────
 %  Theme & colours
@@ -70,7 +77,12 @@
 \newcommand{\highlight}[1]{\textcolor{AccentText}{\textbf{#1}}}
 \newcommand{\soft}[1]{\textcolor{LightGray}{#1}}
 
-
+\hypersetup{
+  bookmarksopen=true,
+  bookmarksnumbered=true,
+  pdfauthor={Anindya, Tamal and Din},
+  pdftitle={Diffusion Models: How AI Learns to Create Images from Noise},
+}
 
 %══════════════════════════════════════════════════════════════════
 \begin{document}
@@ -81,67 +93,71 @@
 %──────────────────────────────────────────────────────────────────
 {
 \setbeamercolor{background canvas}{bg=DarkBlue}
+
 \begin{frame}[plain]
   \begin{tikzpicture}[remember picture,overlay]
     \foreach \r/\op in {5/0.05,3.5/0.08,2/0.12}{
       \fill[NeonPink,opacity=\op]
-        (current page.north east) circle (\r cm);
-    }
-    \foreach \r/\op in {4/0.05,2.5/0.08,1.2/0.12}{
-      \fill[AccentPurple,opacity=\op]
+      (current page.north east) circle (\r cm);
+      }
+      \foreach \r/\op in {4/0.05,2.5/0.08,1.2/0.12}{
+        \fill[AccentPurple,opacity=\op]
         (current page.south west) circle (\r cm);
-    }
-  \end{tikzpicture}
-  \vspace{1.4cm}
-  \titlepage
-\end{frame}
+        }
+      \end{tikzpicture}
+      \vspace{1.4cm}
+      \titlepage
+    \end{frame}
 }
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
 
 %══════════════════════════════════════════════════════════════════
 % SLIDE 1 — What Problem Are We Solving?
 %══════════════════════════════════════════════════════════════════
 
+\section{Introduction}
+
 \begin{frame}{What Problem Are We Solving?}
-  \begin{columns}[T]
-    \column{0.52\textwidth}
-      \begin{block}{Generative Modeling}
-        Given many examples of real data (e.g.\ photos of faces),
-        can a machine learn to \highlight{create new, realistic samples}
-        that look just as real?
-      \end{block}
-
-      \vspace{10pt}
-      \textbf{Why is this hard?}
-      \begin{itemize}
-        \item Real data is incredibly complex and high-dimensional
-        \item The model must capture fine details \emph{and} global structure
-        \item Previous approaches each had trade-offs:
-          \begin{itemize}
-            \item GANs — great quality, unstable training
-            \item VAEs — stable training, blurry outputs
-          \end{itemize}
-      \end{itemize}
-
-      \vspace{8pt}
-      \highlight{Diffusion models} combine the best of both worlds.
-
-    \column{0.45\textwidth}
-      \vspace{6pt}
+  \vspace{4pt}
+  \begin{figure}
+    \centering
+    \begin{minipage}[c]{\linewidth}
       \centering
-      %% >>> REPLACE with an actual image <<<
-      %% \includegraphics[width=\linewidth]{img/generative_examples.png}
-      \begin{tikzpicture}
-        \node[draw=LightGray, dashed, rounded corners=5pt,
-              minimum width=6cm, minimum height=3.2cm,
-              text=LightGray, font=\small, align=center]
-          {\textit{Insert image:}\\\textit{Real photos vs.\ AI-generated}\\\textit{(e.g.\ faces, landscapes)}};
-      \end{tikzpicture}
-  \end{columns}
+      \begin{minipage}[b]{0.2\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/Real_Face.png}
+        \\[1pt]
+        {\tiny Real face}
+      \end{minipage}
+      \hspace{0.2\linewidth}
+      \begin{minipage}[b]{0.2\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/AI_Generated_Face_05.png}
+        \\[1pt]
+        {\tiny AI-generated face \textit{(Sora)}}
+      \end{minipage}
+    \end{minipage}
+  \end{figure}
+
+  \pause
+  \vspace{4pt}
+  \begin{block}{Generative Modeling}
+    Can a machine learn to \highlight{create new, realistic samples}
+    that are indistinguishable from real data?
+  \end{block}
+  \pause
+  \begin{center}
+    \highlight{Diffusion models} provide a stable, high-quality solution.
+  \end{center}
 \end{frame}
 
 %══════════════════════════════════════════════════════════════════
 % SLIDE 2 — The Core Idea: Learning by Destroying
 %══════════════════════════════════════════════════════════════════
+\section{Core Idea}
 
 \begin{frame}{The Core Idea: Learning by Destroying}
 
@@ -154,50 +170,29 @@
       bigarr/.style={-{Stealth[length=3mm]}, line width=1.6pt}]
 
       %% Forward (destroy)
-      \node[stage, fill=AccentPurple!80] (clean) at (0,0)
+      \node<1->[stage, fill=AccentPurple!80] (clean) at (0,0)
         {\textbf{Clean Image}\\[6pt]\footnotesize contains\\all the detail};
-      \node[stage, fill=AccentBlue] (mid) at (5,0)
+      \node<2->[stage, fill=AccentBlue] (mid) at (5,0)
         {\textbf{Noisy Image}\\[6pt]\footnotesize some detail\\remains};
-      \node[stage, fill=NeonPink!60] (noise) at (10,0)
+      \draw<2->[bigarr, NeonPink!50] (clean) -- (mid)
+        node[midway, above, font=\footnotesize]{add noise};
+      \node<3->[stage, fill=NeonPink!90] (noise) at (10,0)
         {\textbf{Pure Noise}\\[6pt]\footnotesize no information\\left};
-
-      \draw[bigarr, NeonPink!70] (clean) -- (mid)
+      \draw<3->[bigarr, NeonPink!50] (mid) -- (noise)
         node[midway, above, font=\footnotesize]{add noise};
-      \draw[bigarr, NeonPink!70] (mid) -- (noise)
-        node[midway, above, font=\footnotesize]{add noise};
-
       %% Reverse (learn)
-      \draw[bigarr, AccentText] (noise.south) -- ++(0,-0.5) -| (clean.south)
-        node[midway, below=4pt, font=\footnotesize, text=AccentText]
+      \draw<4->[bigarr, AccentText] (noise.south) -- ++(0,-0.5) -| (clean.south);
+      \node<4->[font=\small, text=AccentText, align=center] at (5,-2.1)
         {Learn to reverse this process step by step};
 
     \end{tikzpicture}
   \end{center}
-
-  \vspace{8pt}
-  \begin{columns}[T]
-    \column{0.48\textwidth}
-      \highlight{Forward process} (fixed, no learning):
-      \begin{itemize}
-        \item Gradually add small amounts of random noise
-        \item Eventually all structure is destroyed
-      \end{itemize}
-
-    \column{0.48\textwidth}
-      \highlight{Reverse process} (learned):
-      \begin{itemize}
-        \item Train a neural network to undo each tiny noise step
-        \item Starting from pure noise, the network reconstructs an image
-      \end{itemize}
-  \end{columns}
-
-  \vspace{6pt}
 \end{frame}
 
 %══════════════════════════════════════════════════════════════════
 % SLIDE 3 — The Forward Process: Adding Noise
 %══════════════════════════════════════════════════════════════════
-
+\section{Forward Process}
 \begin{frame}{The Forward Process: Adding Noise}
 
   \vspace{10pt}
@@ -222,7 +217,7 @@
 %══════════════════════════════════════════════════════════════════
 % SLIDE 4 — The Reverse Process: Removing Noise
 %══════════════════════════════════════════════════════════════════
-
+\section{Reverse Process}
 \begin{frame}{The Reverse Process: Removing Noise}
 
   \vspace{10pt}
@@ -250,7 +245,7 @@
 %══════════════════════════════════════════════════════════════════
 % SLIDE 5 — How Do We Train It?
 %══════════════════════════════════════════════════════════════════
-
+\section{Training}
 \begin{frame}{How Do We Train It?}
 
   \begin{center}
@@ -261,21 +256,28 @@
                    font=\large, inner sep=10pt, align=left},
       arr/.style={->, LightGray, line width=1.2pt}]
 
-      \node[trainstep] (s1) at (0,0)
+      \node<1->[trainstep] (s1) at (0,0)
         {1.\; Take a real image from the training set};
-      \node[trainstep, below=14pt of s1] (s2)
+      % \pause
+      \node<2->[trainstep, below=14pt of s1] (s2)
         {2.\; Pick a random step and add the corresponding noise};
-      \node[trainstep, below=14pt of s2] (s3)
+      \draw<2->[arr] (s1.south) -- (s2.north);
+      % \pause
+      \node<3->[trainstep, below=14pt of s2] (s3)
         {3.\; Ask the neural network: \textit{``what noise was added?''}};
-      \node[trainstep, below=14pt of s3, fill=AccentPurple!70] (s4)
+      \draw<3->[arr] (s2.south) -- (s3.north);
+      % \pause
+      \node<4->[trainstep, below=14pt of s3, fill=AccentPurple!90] (s4)
         {4.\; Compare the prediction to the \textbf{actual noise}, minimize the error};
+      \draw<4->[arr] (s3.south) -- (s4.north);
 
-      \foreach \a/\b in {s1/s2, s2/s3, s3/s4}
-        \draw[arr] (\a.south) -- (\b.north);
+      % \foreach \a/\b in {s1/s2, s2/s3, s3/s4}
+      %   \draw[arr] (\a.south) -- (\b.north);
     \end{tikzpicture}
   \end{center}
 \end{frame}
 
+\section{Insights}
 \begin{frame}{Key Insight \& Why It Works}
   \begin{columns}[T]
     \column{0.48\textwidth}
@@ -308,10 +310,10 @@
     \column{0.55\textwidth}
       \begin{block}{Advantages}
         \begin{itemize}
-          \item \highlight{Stable training} — no adversarial game; just predict noise
-          \item \highlight{Small steps} — each denoising step is a tiny, easy task
-          \item \highlight{High quality} — state-of-the-art image fidelity
-          \item \highlight{Flexible} — works on images, audio, video, 3-D, molecules\ldots
+          \item \highlight{Stable training} no adversarial game; just predict noise
+          \item \highlight{Small steps} each denoising step is a tiny, easy task
+          \item \highlight{High quality} state-of-the-art image fidelity
+          \item \highlight{Flexible} works on images, audio, video, 3-D, molecules\ldots
         \end{itemize}
       \end{block}
 
@@ -347,7 +349,7 @@
 %══════════════════════════════════════════════════════════════════
 % SLIDE 7 — Applications
 %══════════════════════════════════════════════════════════════════
-
+\section{Applications}
 \begin{frame}{Applications}
   \begin{columns}[T]
     \column{0.55\textwidth}
@@ -390,7 +392,7 @@
 %══════════════════════════════════════════════════════════════════
 % SLIDE 8 — Limitations & Open Challenges
 %══════════════════════════════════════════════════════════════════
-
+\section{Limitations \& Challenges}
 \begin{frame}{Limitations \& Open Challenges}
   \begin{columns}[T]
     \column{0.50\textwidth}
@@ -437,6 +439,9 @@
 %──────────────────────────────────────────────────────────────────
 {
 \setbeamercolor{background canvas}{bg=DarkBlue}
+
+\section{Conclusion}
+
 \begin{frame}[plain]
   \begin{tikzpicture}[remember picture,overlay]
     \foreach \r/\op in {6/0.04,4/0.07,2.2/0.11}{
