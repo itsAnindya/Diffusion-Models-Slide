@@ -1,0 +1,170 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{ho2020ddpm}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=2ac2ca10b22e4d13af1767e87495412f}{%
+           family={Ho},
+           familyi={H\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=31ac0835ffc3ba6d612252522a6a2011}{%
+           family={Jain},
+           familyi={J\bibinitperiod},
+           given={Ajay},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e28d4ee199593959d8c29980a64f1974}{%
+           family={Abbeel},
+           familyi={A\bibinitperiod},
+           given={Pieter},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Vancouver, BC, Canada}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates Inc.}%
+      }
+      \strng{namehash}{1ef17e0fed8d834b029ebb1c6adf76b4}
+      \strng{fullhash}{1ef17e0fed8d834b029ebb1c6adf76b4}
+      \strng{fullhashraw}{1ef17e0fed8d834b029ebb1c6adf76b4}
+      \strng{bibnamehash}{d9c72e0919aac578c7e983d804becd3d}
+      \strng{authorbibnamehash}{d9c72e0919aac578c7e983d804becd3d}
+      \strng{authornamehash}{1ef17e0fed8d834b029ebb1c6adf76b4}
+      \strng{authorfullhash}{1ef17e0fed8d834b029ebb1c6adf76b4}
+      \strng{authorfullhashraw}{1ef17e0fed8d834b029ebb1c6adf76b4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We present high quality image synthesis results using diffusion probabilistic models, a class of latent variable models inspired by considerations from nonequilibrium thermodynamics. Our best results are obtained by training on a weighted variational bound designed according to a novel connection between diffusion probabilistic models and denoising score matching with Langevin dynamics, and our models naturally admit a progressive lossy decompression scheme that can be interpreted as a generalization of autoregressive decoding. On the unconditional CIFAR10 dataset, we obtain an Inception score of 9.46 and a state-of-the-art FID score of 3.17. On 256x256 LSUN, we obtain sample quality similar to ProgressiveGAN.}
+      \field{booktitle}{Proceedings of the 34th International Conference on Neural Information Processing Systems}
+      \field{isbn}{9781713829546}
+      \field{series}{NIPS '20}
+      \field{title}{Denoising diffusion probabilistic models}
+      \field{year}{2020}
+      \true{nocite}
+    \endentry
+    \entry{song2019generative}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=7dacbb5a6e92ab16944d46ba03705563}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Yang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=160929a7e6ceecdf3f7c9a13abd5ea35}{%
+           family={Ermon},
+           familyi={E\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{529d173e3d0a4b0d5e8d1c6ef42b16fe}
+      \strng{fullhash}{529d173e3d0a4b0d5e8d1c6ef42b16fe}
+      \strng{fullhashraw}{529d173e3d0a4b0d5e8d1c6ef42b16fe}
+      \strng{bibnamehash}{529d173e3d0a4b0d5e8d1c6ef42b16fe}
+      \strng{authorbibnamehash}{529d173e3d0a4b0d5e8d1c6ef42b16fe}
+      \strng{authornamehash}{529d173e3d0a4b0d5e8d1c6ef42b16fe}
+      \strng{authorfullhash}{529d173e3d0a4b0d5e8d1c6ef42b16fe}
+      \strng{authorfullhashraw}{529d173e3d0a4b0d5e8d1c6ef42b16fe}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in neural information processing systems}
+      \field{title}{Generative modeling by estimating gradients of the data distribution}
+      \field{volume}{32}
+      \field{year}{2019}
+      \true{nocite}
+    \endentry
+    \entry{song2020denoising}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=78372b7167d001d4c80db2b19d6a76f3}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Jiaming},
+           giveni={J\bibinitperiod}}}%
+        {{hash=58f87d1ad306023b7f8301b2b85c1584}{%
+           family={Meng},
+           familyi={M\bibinitperiod},
+           given={Chenlin},
+           giveni={C\bibinitperiod}}}%
+        {{hash=160929a7e6ceecdf3f7c9a13abd5ea35}{%
+           family={Ermon},
+           familyi={E\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{ebc7e264c58ec8ac9b0159b127245547}
+      \strng{fullhash}{ebc7e264c58ec8ac9b0159b127245547}
+      \strng{fullhashraw}{ebc7e264c58ec8ac9b0159b127245547}
+      \strng{bibnamehash}{48b91413191c8335a53fdbd2568bafd4}
+      \strng{authorbibnamehash}{48b91413191c8335a53fdbd2568bafd4}
+      \strng{authornamehash}{ebc7e264c58ec8ac9b0159b127245547}
+      \strng{authorfullhash}{ebc7e264c58ec8ac9b0159b127245547}
+      \strng{authorfullhashraw}{ebc7e264c58ec8ac9b0159b127245547}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2010.02502}
+      \field{title}{Denoising diffusion implicit models}
+      \field{year}{2020}
+      \true{nocite}
+    \endentry
+    \entry{nichol2021improved}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=c180e7ad472124431829b0b6178afa25}{%
+           family={Nichol},
+           familyi={N\bibinitperiod},
+           given={Alexander\bibnamedelima Quinn},
+           giveni={A\bibinitperiod\bibinitdelim Q\bibinitperiod}}}%
+        {{hash=4164e43d8cf919f5e3f8d80f5ea23f36}{%
+           family={Dhariwal},
+           familyi={D\bibinitperiod},
+           given={Prafulla},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {PMLR}%
+      }
+      \strng{namehash}{40e004b1d5a70b280a2d6129010c6e7a}
+      \strng{fullhash}{40e004b1d5a70b280a2d6129010c6e7a}
+      \strng{fullhashraw}{40e004b1d5a70b280a2d6129010c6e7a}
+      \strng{bibnamehash}{40e004b1d5a70b280a2d6129010c6e7a}
+      \strng{authorbibnamehash}{40e004b1d5a70b280a2d6129010c6e7a}
+      \strng{authornamehash}{40e004b1d5a70b280a2d6129010c6e7a}
+      \strng{authorfullhash}{40e004b1d5a70b280a2d6129010c6e7a}
+      \strng{authorfullhashraw}{40e004b1d5a70b280a2d6129010c6e7a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{International conference on machine learning}
+      \field{title}{Improved denoising diffusion probabilistic models}
+      \field{year}{2021}
+      \true{nocite}
+      \field{pages}{8162\bibrangedash 8171}
+      \range{pages}{10}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
