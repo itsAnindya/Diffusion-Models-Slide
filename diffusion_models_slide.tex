@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,10pt]{beamer}
+\documentclass[aspectratio=169,11pt]{beamer}
 
 %──────────────────────────────────────────────────────────────────
 %  Theme & colours
@@ -23,7 +23,6 @@
 \setbeamercolor{title separator}{fg=AccentText}
 \setbeamercolor{progress bar}{fg=AccentText,bg=AccentBlue}
 \setbeamercolor{block title}{bg=AccentPurple,fg=SoftWhite}
-% \setbeamercolor{block body}{bg=AccentBlue!60,fg=SoftWhite}
 \setbeamercolor{block body}{bg=Black!80,fg=SoftWhite}
 \setbeamercolor{alerted text}{fg=AccentText}
 \setbeamercolor{itemize item}{fg=AccentText}
@@ -38,12 +37,9 @@
                 shapes.geometric,backgrounds,calc,fit,fadings}
 \usepackage{amsmath,amssymb,bm}
 \usepackage{booktabs}
-% fontawesome5 not available; using text icons
 \newcommand{\faIcon}[1]{\textbullet}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
 \usepackage{xcolor}
-\usepackage{mathtools}
+\usepackage{graphicx}
 
 \usepackage[
   backend=biber,
@@ -71,17 +67,10 @@
 %──────────────────────────────────────────────────────────────────
 %  Custom commands
 %──────────────────────────────────────────────────────────────────
-\newcommand{\x}{\mathbf{x}}
-\newcommand{\eps}{\boldsymbol{\varepsilon}}
 \newcommand{\highlight}[1]{\textcolor{AccentText}{\textbf{#1}}}
 \newcommand{\soft}[1]{\textcolor{LightGray}{#1}}
 
-% ─── Noise-level boxes ───────────────────────────────────────────
-\newcommand{\noisebox}[2]{%
-  \begin{tikzpicture}[baseline=-2pt]
-    \node[rounded corners=3pt,fill=#1,minimum width=1.1cm,
-          minimum height=0.6cm,font=\tiny\bfseries,text=white]{#2};
-  \end{tikzpicture}}
+
 
 %══════════════════════════════════════════════════════════════════
 \begin{document}
@@ -94,7 +83,6 @@
 \setbeamercolor{background canvas}{bg=DarkBlue}
 \begin{frame}[plain]
   \begin{tikzpicture}[remember picture,overlay]
-    % decorative circles
     \foreach \r/\op in {5/0.05,3.5/0.08,2/0.12}{
       \fill[NeonPink,opacity=\op]
         (current page.north east) circle (\r cm);
@@ -109,318 +97,260 @@
 \end{frame}
 }
 
-%──────────────────────────────────────────────────────────────────
-% OUTLINE
-%──────────────────────────────────────────────────────────────────
-\begin{frame}{Roadmap}
-  \vspace{0.3cm}
-  \begin{columns}[T]
-    \column{0.55\textwidth}
-      \tableofcontents
-    \column{0.42\textwidth}
-      \begin{tikzpicture}
-        \node[draw=NeonPink,rounded corners=5pt,
-              text=SoftWhite,fill=AccentBlue,
-              text width=4.5cm, align=center, inner sep=8pt]{
-          \small
-          \faIcon{clock}~\textbf{10 min talk}\\[4pt]
-          \footnotesize
-          Speaker 1 (Anindya Biswas) \hfill 3 min\\
-          Speaker 2 (Tasnim Tamal) \hfill 3 min\\
-          Speaker 3 (Din Mohammad) \hfill 3 min\\
-          Buffer / Transition \hfill 1 min
-        };
-      \end{tikzpicture}
-  \end{columns}
-\end{frame}
-
 %══════════════════════════════════════════════════════════════════
-\section{Motivation}
+% SLIDE 1 — What Problem Are We Solving?
 %══════════════════════════════════════════════════════════════════
 
-\begin{frame}{Why Diffusion Models?}
+\begin{frame}{What Problem Are We Solving?}
   \begin{columns}[T]
-    \column{0.54\textwidth}
-      \begin{block}{In One Line}
-        A diffusion model learns to \highlight{turn random noise into meaningful data}
-        (like realistic images).
+    \column{0.52\textwidth}
+      \begin{block}{Generative Modeling}
+        Given many examples of real data (e.g.\ photos of faces),
+        can a machine learn to \highlight{create new, realistic samples}
+        that look just as real?
       \end{block}
-      % \vspace{6pt}
-      \begin{itemize}
-        \item \textbf{GANs}: high quality, but training is often unstable
-        \item \textbf{VAEs}: stable and fast, but outputs can look blurry
-        \item \textbf{Flows}: mathematically clean, but architecture is restricted
-        \item \highlight{Diffusion}: stable training + very strong output quality
-      \end{itemize}
-      % \vspace{6pt}
-      
 
-    \column{0.44\textwidth}
-      \begin{tikzpicture}[scale=0.85]
-        % axes
-        \draw[->,thick,white] (0,0) -- (4.5,0)
-              node[right,font=\tiny]{Sample Quality};
-        \draw[->,thick,white] (0,0) -- (0,4.2)
-              node[above,font=\tiny]{Training Stability};
-        % methods
-        \node[circle,fill=AccentPurple,minimum size=22pt,
-              font=\tiny\bfseries,text=white]
-              at (1.2,1.0) {GAN};
-        \node[circle,fill=AccentBlue,minimum size=22pt,
-              font=\tiny\bfseries,text=white]
-              at (1.8,2.8) {VAE};
-        \node[circle,fill=AccentPurple!80,minimum size=22pt,
-              font=\tiny\bfseries,text=white]
-              at (2.4,2.2) {Flow};
-        \node[circle,fill=NeonPink,minimum size=26pt,
-              font=\tiny\bfseries,text=white]
-              at (3.6,3.5) {Diff.};
-        % annotation
-        \draw[dashed,NeonPink!60,->] (3.0,3.5) -- (3.45,3.45);
-          \node[AccentText,font=\tiny,align=center] at (2.1,3.9)
-              {Best of\\ both worlds};
+      \vspace{10pt}
+      \textbf{Why is this hard?}
+      \begin{itemize}
+        \item Real data is incredibly complex and high-dimensional
+        \item The model must capture fine details \emph{and} global structure
+        \item Previous approaches each had trade-offs:
+          \begin{itemize}
+            \item GANs — great quality, unstable training
+            \item VAEs — stable training, blurry outputs
+          \end{itemize}
+      \end{itemize}
+
+      \vspace{8pt}
+      \highlight{Diffusion models} combine the best of both worlds.
+
+    \column{0.45\textwidth}
+      \vspace{6pt}
+      \centering
+      %% >>> REPLACE with an actual image <<<
+      %% \includegraphics[width=\linewidth]{img/generative_examples.png}
+      \begin{tikzpicture}
+        \node[draw=LightGray, dashed, rounded corners=5pt,
+              minimum width=6cm, minimum height=3.2cm,
+              text=LightGray, font=\small, align=center]
+          {\textit{Insert image:}\\\textit{Real photos vs.\ AI-generated}\\\textit{(e.g.\ faces, landscapes)}};
       \end{tikzpicture}
   \end{columns}
-  \vspace{6pt}
-  \soft{Used in tools like DALL·E 3, Stable Diffusion, and Sora}
 \end{frame}
 
 %══════════════════════════════════════════════════════════════════
-\section{Forward Process}
+% SLIDE 2 — The Core Idea: Learning by Destroying
 %══════════════════════════════════════════════════════════════════
 
-\begin{frame}{The Forward (Noising) Process}
+\begin{frame}{The Core Idea: Learning by Destroying}
 
-  \begin{block}{Key Idea}
-    Gradually corrupt data $\x_0$ into pure Gaussian noise $\x_T$
-    through a fixed Markov chain.
-  \end{block}
-
-  \vspace{6pt}
-  \begin{equation*}
-    q(\x_t \mid \x_{t-1}) = \mathcal{N}\!\left(\x_t;\;
-      \sqrt{1-\beta_t}\,\x_{t-1},\;\beta_t \mathbf{I}\right)
-  \end{equation*}
-
-  \vspace{4pt}
   \begin{center}
-  \begin{tikzpicture}[node distance=0.6cm and 0.65cm,
-    box/.style={rounded corners=4pt,draw=white!40,
-                fill=AccentBlue,minimum height=1.0cm,
-                minimum width=1.1cm,font=\tiny,text=white,
-                inner sep=2pt,align=center}]
+    \begin{tikzpicture}[
+      stage/.style={rounded corners=6pt, draw=white!30,
+                    minimum width=2.5cm, minimum height=2.4cm,
+                    font=\small, text=white, align=center,
+                    inner sep=6pt},
+      bigarr/.style={-{Stealth[length=3mm]}, line width=1.6pt}]
 
-    \node[box,fill=AccentPurple!80] (x0) {$\x_0$\\\tiny clean};
-    \node[box] (x1) [right=of x0]   {$\x_1$};
-    \node[box] (x2) [right=of x1]   {$\x_2$};
-    \node[box] (xd) [right=of x2]   {\ldots};
-    \node[box] (xt) [right=of xd]   {$\x_{T-1}$};
-    \node[box,fill=NeonPink!50] (xT) [right=of xt] {$\x_T$\\\tiny noise};
+      %% Forward (destroy)
+      \node[stage, fill=AccentPurple!80] (clean) at (0,0)
+        {\textbf{Clean Image}\\[6pt]\footnotesize contains\\all the detail};
+      \node[stage, fill=AccentBlue] (mid) at (5,0)
+        {\textbf{Noisy Image}\\[6pt]\footnotesize some detail\\remains};
+      \node[stage, fill=NeonPink!60] (noise) at (10,0)
+        {\textbf{Pure Noise}\\[6pt]\footnotesize no information\\left};
 
-    \foreach \a/\b in {x0/x1,x1/x2,x2/xd,xd/xt,xt/xT}{
-      \draw[->,thick,LightGray] (\a) -- (\b)
-            node[midway,above,font=\tiny]{$+\beta_t$};
-    }
+      \draw[bigarr, NeonPink!70] (clean) -- (mid)
+        node[midway, above, font=\footnotesize]{add noise};
+      \draw[bigarr, NeonPink!70] (mid) -- (noise)
+        node[midway, above, font=\footnotesize]{add noise};
 
-    % noise icons (fuzzy fills)
-    \foreach \n/\op in {x1/20,x2/40,xt/70,xT/100}{
-      \fill[white,opacity=0.0\op,rounded corners=4pt]
-        (\n.south west) rectangle (\n.north east);
-    }
+      %% Reverse (learn)
+      \draw[bigarr, AccentText] (noise.south) -- ++(0,-0.5) -| (clean.south)
+        node[midway, below=4pt, font=\footnotesize, text=AccentText]
+        {Learn to reverse this process step by step};
 
-    % closed-form shortcut
-    \draw[<->,dashed,NeonPink,thick]
-      (x0.south) -- ++(0,-0.6) -| (xT.south)
-      node[midway,below,font=\scriptsize,text=AccentText]{
-        $q(\x_t|\x_0)=\mathcal{N}(\sqrt{\bar\alpha_t}\,\x_0,
-        (1-\bar\alpha_t)\mathbf{I})$};
-  \end{tikzpicture}
+    \end{tikzpicture}
   \end{center}
 
-  \vspace{4pt}
-  \small
-  Plainly: start from a real sample and add a little noise repeatedly
-  until almost all information is gone.
-
-\end{frame}
-
-
-%══════════════════════════════════════════════════════════════════
-\section{Reverse Process}
-%══════════════════════════════════════════════════════════════════
-\begin{frame}{The Reverse (Denoising) Process}
-
+  \vspace{8pt}
   \begin{columns}[T]
-    \column{0.40\textwidth}
-      \textbf{Goal}: Learn $p_\theta(\x_{t-1}|\x_t)$ to reverse the noise.
-
-      \vspace{6pt}
-      A \highlight{neural network} $\eps_\theta$ predicts the noise
-      present at each step:
-      \begin{equation*}
-        \x_{t-1} \approx \x_t - \text{predicted noise}
-      \end{equation*}
-
-      \vspace{4pt}
+    \column{0.48\textwidth}
+      \highlight{Forward process} (fixed, no learning):
       \begin{itemize}
-        \item Backbone: usually a \textbf{U-Net}
-        \item Input: noisy sample $\x_t$ and timestep $t$
-        \item Repeat to gradually recover clean data
+        \item Gradually add small amounts of random noise
+        \item Eventually all structure is destroyed
       \end{itemize}
 
-    \column{0.58\textwidth}
-      \centering
-      \begin{tikzpicture}[
-        box/.style={rounded corners=4pt, draw=white!30,
-                    minimum width=2.6cm, minimum height=0.65cm,
-                    font=\scriptsize\bfseries, text=white,
-                    inner sep=4pt, align=center},
-        arr/.style={->, line width=1.2pt, NeonPink!85},
-        ann/.style={draw=AccentPurple, rounded corners=3pt,
-                    fill=AccentPurple!80, font=\tiny, text=white,
-                    inner sep=4pt, align=center}]
-
-        %% ---- chain nodes, generously spaced ----
-        \node[box, fill=NeonPink!55]      (xT)   at (0,  0.0) {$\x_T \sim \mathcal{N}(0,\mathbf{I})$};
-        \node[box, fill=AccentBlue]       (xT1)  at (0, -1.6) {$\x_{T-1}$};
-        \node[font=\small, text=LightGray](dots)  at (0, -2.7) {$\vdots$};
-        \node[box, fill=AccentBlue]       (x1)   at (0, -3.8) {$\x_1$};
-        \node[box, fill=AccentPurple!85]  (x0)   at (0, -5.4) {$\x_0$ \ (Generated)};
-
-        %% ---- arrows along the chain ----
-        \foreach \a/\b in {xT/xT1, xT1/dots, dots/x1, x1/x0}
-          \draw[arr] (\a) -- (\b);
-
-        %% ---- U-Net annotation box ----
-        \node[ann] (unet) at (2.55,-2.7)
-              {$\eps_\theta(\x_t,t)$\\[2pt]U-Net};
-
-        %% ---- dashed lines to arrow midpoints, not node centres ----
-        \draw[dashed, AccentPurple!80, ->]
-          (unet.west) -- (0.55,-0.80);   %% mid of xT  → xT1
-        \draw[dashed, AccentPurple!80, ->]
-          (unet.west) -- (0.55,-4.60);   %% mid of x1  → x0
-
-      \end{tikzpicture}
+    \column{0.48\textwidth}
+      \highlight{Reverse process} (learned):
+      \begin{itemize}
+        \item Train a neural network to undo each tiny noise step
+        \item Starting from pure noise, the network reconstructs an image
+      \end{itemize}
   \end{columns}
 
+  \vspace{6pt}
 \end{frame}
 
 %══════════════════════════════════════════════════════════════════
-\section{Training \& Score Matching}
+% SLIDE 3 — The Forward Process: Adding Noise
 %══════════════════════════════════════════════════════════════════
 
-\begin{frame}{Training Objective}
+\begin{frame}{The Forward Process: Adding Noise}
 
-  \begin{block}{Training Idea (Simple Version)}
-    \vspace{-2pt}
-    \begin{equation*}
-      \mathcal{L}_{\text{simple}} =
-        \mathbb{E}_{t,\,\x_0,\,\eps}\!\left[
-          \left\|\,\eps \;-\;
-          \eps_\theta\!\left(\sqrt{\bar\alpha_t}\,\x_0 +
-          \sqrt{1-\bar\alpha_t}\,\eps,\; t\right)\right\|^2
-        \right]
-    \end{equation*}
+  \vspace{10pt}
+  \begin{center}
+    %% >>> REPLACE with an actual noising-sequence image <<<
+    %% \includegraphics[width=0.92\linewidth]{img/forward_process.png}
+    \begin{tikzpicture}
+      \node[draw=LightGray, dashed, rounded corners=5pt,
+            minimum width=13cm, minimum height=3.8cm,
+            text=LightGray, font=\small, align=center]
+        {\textit{Insert image: progressive noising sequence}\\[4pt]
+         Clean image $\to$ slightly noisy $\to$ more noisy $\to$ \dots\ $\to$ pure noise};
+    \end{tikzpicture}
+  \end{center}
+
+  \begin{block}{What Happens}
+    Take a real image and add a \emph{tiny} bit of random noise.
+    Repeat this hundreds of times until only noise remains.
   \end{block}
-
-  \vspace{4pt}
-  \begin{columns}[T]
-    \column{0.48\textwidth}
-      \textbf{Algorithm — Training}\\[4pt]
-      \begin{tikzpicture}[
-        flowstep/.style={rounded corners=3pt, draw=LightGray,
-                         fill=AccentBlue, text=SoftWhite,
-                         text width=\linewidth,        %% fills the column
-                         font=\scriptsize,
-                         inner sep=5pt, align=left},
-        arr/.style={->, LightGray, line width=0.7pt}]
-
-        \node[flowstep] (s1)
-              {1.~Sample $\x_0\sim q(\x_0)$};
-        \node[flowstep, below=8pt of s1] (s2)   %% more gap → visible arrow
-              {2.~Sample timestep $t\sim\mathcal{U}\{1,T\}$};
-        \node[flowstep, below=8pt of s2] (s3)
-              {3.~Sample $\eps\sim\mathcal{N}(0,\mathbf{I})$};
-        \node[flowstep, below=8pt of s3] (s4)
-              {4.~Compute noisy sample $\x_t$};
-        \node[flowstep, below=8pt of s4, fill=AccentPurple!70] (s5)
-              {5.~\textbf{Minimise} $\|\eps - \eps_\theta(\x_t,t)\|^2$};
-
-        \foreach \a/\b in {s1/s2, s2/s3, s3/s4, s4/s5}
-          \draw[arr] (\a.south) -- (\b.north);
-
-      \end{tikzpicture}
-
-    \column{0.48\textwidth}
-      \textbf{What this loss means}\\[6pt]
-      \small
-      \begin{itemize}
-        \item We add known noise to a clean sample
-        \item The model guesses that exact noise
-        \item If the guess is close, the model is learning correctly
-        \item After training, we remove noise step by step
-      \end{itemize}
-      \vspace{6pt}
-      \highlight{Key insight}: learning to denoise is enough for generation.
-  \end{columns}
-
 \end{frame}
-%──────────────────────────────────────────────────────────────────
-\begin{frame}{Noise Schedule \& Sampling Speed}
-  \begin{columns}[T]
-    \column{0.50\textwidth}
-      \textbf{Noise Schedules}
-      \begin{itemize}
-        \item \textit{Linear}: increase noise at a constant rate
-        \item \textit{Cosine}: keeps more structure early on
-        \item \textit{Learned}: schedule is optimized by data
-      \end{itemize}
 
-      \vspace{6pt}
-      \begin{tikzpicture}[scale=0.78]
-        \begin{axis}[
-          width=5.5cm,height=3.8cm,
-          xlabel={\scriptsize Timestep $t$},
-          ylabel={\scriptsize $\bar\alpha_t$},
-          axis background/.style={fill=MidBlue},
-          axis line style={white},
-          tick style={white},
-          ticklabel style={font=\tiny,text=LightGray},
-          legend style={font=\tiny,fill=MidBlue,
-                        text=SoftWhite,draw=none},
-          xmin=0,xmax=1000,ymin=0,ymax=1]
-          \addplot[thick,NeonPink,domain=0:1000,samples=80]
-            {(1000-x)/1000};
-          \addlegendentry{Linear}
-          \addplot[thick,AccentPurple!120,domain=0:1000,samples=80]
-            {0.5*(1+cos(deg(3.14159*(x/1000))))};
-          \addlegendentry{Cosine}
-        \end{axis}
-      \end{tikzpicture}
+%══════════════════════════════════════════════════════════════════
+% SLIDE 4 — The Reverse Process: Removing Noise
+%══════════════════════════════════════════════════════════════════
+
+\begin{frame}{The Reverse Process: Removing Noise}
+
+  \vspace{10pt}
+  \begin{center}
+    %% >>> REPLACE with an actual denoising-sequence image <<<
+    %% \includegraphics[width=0.92\linewidth]{img/reverse_process.png}
+    \begin{tikzpicture}
+      \node[draw=LightGray, dashed, rounded corners=5pt,
+            minimum width=13cm, minimum height=3.8cm,
+            text=LightGray, font=\small, align=center]
+        {\textit{Insert image: progressive denoising sequence}\\[4pt]
+         Pure noise $\to$ rough shape $\to$ clearer structure $\to$ final image};
+    \end{tikzpicture}
+  \end{center}
+
+  \begin{block}{How Generation Works}
+    \begin{itemize}
+      \item Start from \highlight{pure noise}
+      \item Predict and remove a little noise at each step
+      \item Repeat until a realistic image appears
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+%══════════════════════════════════════════════════════════════════
+% SLIDE 5 — How Do We Train It?
+%══════════════════════════════════════════════════════════════════
+
+\begin{frame}{How Do We Train It?}
+
+  \begin{center}
+    \begin{tikzpicture}[
+      trainstep/.style={rounded corners=5pt, draw=LightGray,
+                   fill=AccentBlue, text=SoftWhite,
+                   minimum width=12.8cm, minimum height=1.0cm,
+                   font=\large, inner sep=10pt, align=left},
+      arr/.style={->, LightGray, line width=1.2pt}]
+
+      \node[trainstep] (s1) at (0,0)
+        {1.\; Take a real image from the training set};
+      \node[trainstep, below=14pt of s1] (s2)
+        {2.\; Pick a random step and add the corresponding noise};
+      \node[trainstep, below=14pt of s2] (s3)
+        {3.\; Ask the neural network: \textit{``what noise was added?''}};
+      \node[trainstep, below=14pt of s3, fill=AccentPurple!70] (s4)
+        {4.\; Compare the prediction to the \textbf{actual noise}, minimize the error};
+
+      \foreach \a/\b in {s1/s2, s2/s3, s3/s4}
+        \draw[arr] (\a.south) -- (\b.north);
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Key Insight \& Why It Works}
+  \begin{columns}[T]
+    \column{0.48\textwidth}
+      \begin{block}{Key Insight}
+        \begin{itemize}
+          \item We add \textbf{known} noise
+          \item So we have exact labels
+          \item Training target is clear and reliable
+        \end{itemize}
+      \end{block}
 
     \column{0.48\textwidth}
-      \textbf{Accelerated Sampling}
-      \begin{itemize}
-        \item DDPM: $T=1000$ steps (slow)
-        \item \highlight{DDIM} (Song et al., 2020): deterministic,
-              $\sim$50 steps, same quality
-        \item \highlight{DPM-Solver}: $\sim$20 steps
-        \item \highlight{Consistency Models}: 1–2 steps!
-      \end{itemize}
-
-      \vspace{4pt}
-      \small Speed-quality trade-off is an active research frontier.
+      \begin{block}{Why It Works}
+        \begin{itemize}
+          \item Model learns many small denoising steps
+          \item Small steps are easier to learn
+          \item Chaining them builds a full image
+        \end{itemize}
+      \end{block}
   \end{columns}
 \end{frame}
 
 %══════════════════════════════════════════════════════════════════
-\section{Applications}
+% SLIDE 6 — Why Diffusion Models Work So Well
 %══════════════════════════════════════════════════════════════════
 
-\begin{frame}{Applications \& Variants}
+\begin{frame}{Why Diffusion Models Work So Well}
+
   \begin{columns}[T]
-    \column{0.58\textwidth}
+    \column{0.55\textwidth}
+      \begin{block}{Advantages}
+        \begin{itemize}
+          \item \highlight{Stable training} — no adversarial game; just predict noise
+          \item \highlight{Small steps} — each denoising step is a tiny, easy task
+          \item \highlight{High quality} — state-of-the-art image fidelity
+          \item \highlight{Flexible} — works on images, audio, video, 3-D, molecules\ldots
+        \end{itemize}
+      \end{block}
+
+      % \vspace{8pt}
+
+    \column{0.42\textwidth}
+      \centering
+      \vspace{6pt}
+      % Quality-stability scatter (simplified)
+      \begin{tikzpicture}[scale=0.9]
+        \draw[->,thick,white] (0,0) -- (4.5,0)
+              node[right,font=\scriptsize]{Sample Quality};
+        \draw[->,thick,white] (0,0) -- (0,4.2)
+              node[above,font=\scriptsize]{Training Stability};
+
+        \node[circle,fill=AccentPurple,minimum size=24pt,
+              font=\scriptsize\bfseries,text=white]
+              at (3.4,0.9) {GAN};
+        \node[circle,fill=AccentBlue,minimum size=24pt,
+              font=\scriptsize\bfseries,text=white]
+              at (1.3,3.0) {VAE};
+        \node[circle,fill=NeonPink,minimum size=28pt,
+              font=\scriptsize\bfseries,text=white]
+              at (3.6,3.5) {Diff.};
+
+        \draw[dashed,AccentText,->] (2.4,3.8) -- (3.35,3.55);
+        \node[AccentText,font=\scriptsize,align=center] at (1.8,4.1)
+            {Best of\\ both worlds};
+      \end{tikzpicture}
+  \end{columns}
+\end{frame}
+
+%══════════════════════════════════════════════════════════════════
+% SLIDE 7 — Applications
+%══════════════════════════════════════════════════════════════════
+
+\begin{frame}{Applications}
+  \begin{columns}[T]
+    \column{0.55\textwidth}
       \vspace{6pt}
       \begin{tikzpicture}[
         app/.style={rounded corners=4pt,
@@ -431,82 +361,75 @@
                          LightGray!65, line width=0.6pt},
         every node/.style={font=\scriptsize}]
 
-        %% ---- hub ----
         \node[draw=NeonPink, circle, fill=DarkBlue,
               font=\small\bfseries, text=AccentText,
               minimum size=1.2cm] (c) at (0,0) {DMs};
 
-        %% ---- spoke nodes (evenly spaced angles) ----
         \node[app, fill=NeonPink]        (img)   at (150:2.4cm) {Image Synthesis};
         \node[app, fill=AccentBlue!120]  (aud)   at (210:2.4cm) {Audio / Music};
         \node[app, fill=NeonPink!70]     (med)   at (270:2.4cm) {Medical Imaging};
-        \node[app, fill=AccentBlue]      (threed)at (330:2.4cm) {3-D Shape / NeRF};
+        \node[app, fill=AccentBlue]      (threed)at (330:2.4cm) {3-D / NeRF};
         \node[app, fill=AccentPurple!80] (mol)   at ( 30:2.4cm) {Molecular Design};
         \node[app, fill=AccentPurple]    (vid)   at ( 90:2.4cm) {Video Generation};
 
-        %% ---- radiating arrows (c → node border, auto-clipped) ----
         \foreach \dest in {img, aud, med, threed, mol, vid}
           \draw[apparrow] (c) -- (\dest);
-
       \end{tikzpicture}
 
-    \column{0.40\textwidth}
-      \textbf{Conditional Generation}
+    \column{0.42\textwidth}
+      \textbf{Real-world tools powered by diffusion:}
       \begin{itemize}
-        \item \textbf{Classifier guidance}: steer outputs toward a target label
-        \item \textbf{Classifier-free}: no separate classifier required
-        \item \textbf{Text conditioning}: prompt-driven image generation
+        \item \highlight{DALL·E 3} — text-to-image
+        \item \highlight{Stable Diffusion} — open-source image generation
+        \item \highlight{Midjourney} — art and design
+        \item \highlight{Sora} — text-to-video
       \end{itemize}
-
-      \vspace{6pt}
-      \soft{\footnotesize Notable: Stable Diffusion (latent space),
-      DALL·E\,3 (GPT captions), Sora (video)}
   \end{columns}
 \end{frame}
+
 %══════════════════════════════════════════════════════════════════
-\section{Conclusion}
+% SLIDE 8 — Limitations & Open Challenges
 %══════════════════════════════════════════════════════════════════
 
-\begin{frame}{Takeaways \& Open Challenges}
+\begin{frame}{Limitations \& Open Challenges}
   \begin{columns}[T]
     \column{0.50\textwidth}
-      \begin{block}{\faIcon{check-circle}~Key Takeaways}
+      \begin{block}{Current Limitations}
         \begin{itemize}
-          \item Diffusion = iterative \textbf{denoising}
-          \item Training objective is \textbf{simple MSE}
-          \item Grounded in \textbf{score matching} theory
-          \item Sets \textbf{state-of-the-art} across modalities
+          \item \textbf{Slow generation} — requires many denoising steps
+                (hundreds to thousands)
+          \item \textbf{High compute cost} — training requires significant
+                GPU resources
+          \item \textbf{Large model size} — not easy to run on consumer hardware
         \end{itemize}
       \end{block}
 
-    \column{0.48\textwidth}
-      \begin{block}{\faIcon{flask}~Open Challenges}
+    \column{0.47\textwidth}
+      \begin{block}{Open Questions}
         \begin{itemize}
-          \item Slow sampling (active research)
-          \item High compute cost
-          \item Evaluation metrics (FID, CLIP-S)
-          \item Alignment \& safety of generated content
+          \item Can we make generation \highlight{faster}?
+                (Active research area)
+          \item How do we ensure generated content is \highlight{safe and ethical}?
+          \item Can we extend to \highlight{longer videos} and
+                \highlight{interactive content}?
         \end{itemize}
       \end{block}
   \end{columns}
 
-  \vspace{10pt}
-  \begin{center}
-    \begin{tikzpicture}
-      \node[draw=NeonPink,rounded corners=6pt,
-            fill=AccentBlue!70,
-            text=SoftWhite,inner sep=10pt,
-            text width=11cm,align=center]{
-        \textbf{Core Formula to Remember}\\[4pt]
-        $\displaystyle
-          \mathcal{L} =
-          \mathbb{E}_{t,\x_0,\eps}\!\left[
-            \bigl\|\eps - \eps_\theta\!\bigl(\sqrt{\bar\alpha_t}\,\x_0
-            + \sqrt{1-\bar\alpha_t}\,\eps,\;t\bigr)\bigr\|^2
-          \right]$
-      };
-    \end{tikzpicture}
-  \end{center}
+  \vspace{12pt}
+  % \begin{center}
+  %   \begin{tikzpicture}
+  %     \node[draw=NeonPink, rounded corners=6pt,
+  %           fill=AccentBlue!70, text=SoftWhite,
+  %           inner sep=10pt, text width=11cm, align=center,
+  %           font=\normalsize]{
+  %       Diffusion models are \textbf{young}, \textbf{powerful},
+  %       and \textbf{improving fast}.\\[3pt]
+  %       The best results in generative AI today
+  %       are almost all diffusion-based.
+  %     };
+  %   \end{tikzpicture}
+  % \end{center}
 \end{frame}
 
 %──────────────────────────────────────────────────────────────────
@@ -524,13 +447,13 @@
   \vspace{1.2cm}
   \begin{center}
     {\Huge\bfseries\color{SoftWhite} Thank You!}\\[10pt]
-    {\large\color{LightGray} Thanks for listening}
+    {\large\color{LightGray} Questions?}
   \end{center}
 \end{frame}
 }
 
 %──────────────────────────────────────────────────────────────────
-% REFERENCES SLIDE (minimalistic)
+% REFERENCES SLIDE
 %──────────────────────────────────────────────────────────────────
 \begin{frame}{References}
   \footnotesize

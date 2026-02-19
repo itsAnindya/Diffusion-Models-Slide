@@ -8,3 +8,9 @@ diffusion_models_slide.nav
 diffusion_models_slide.bcf
 *.gz
 *.log
+diffusion_models_slide.aux
+*.aux
+*.log
+*.nav
+*.out
+*.gz
