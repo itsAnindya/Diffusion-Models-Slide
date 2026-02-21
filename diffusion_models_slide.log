@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.2)  21 FEB 2026 22:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.2)  22 FEB 2026 00:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1174,22 +1174,22 @@ Package pdftex.def Info: images/AI_Generated_Face_05.png  used on input line 170
 ] [11
 
 ]
-<images/clean.png, id=156, 175.40532pt x 175.40532pt>
+<images/clean.png, id=157, 175.40532pt x 175.40532pt>
 File: images/clean.png Graphic file (type png)
 <use images/clean.png>
 Package pdftex.def Info: images/clean.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
-<images/noised_slightly.png, id=157, 175.40532pt x 175.40532pt>
+<images/noised_slightly.png, id=158, 175.40532pt x 175.40532pt>
 File: images/noised_slightly.png Graphic file (type png)
 <use images/noised_slightly.png>
 Package pdftex.def Info: images/noised_slightly.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
-<images/noised_heavily.png, id=158, 175.40532pt x 175.40532pt>
+<images/noised_heavily.png, id=159, 175.40532pt x 175.40532pt>
 File: images/noised_heavily.png Graphic file (type png)
 <use images/noised_heavily.png>
 Package pdftex.def Info: images/noised_heavily.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
-<images/noised_fully.png, id=159, 175.40532pt x 175.40532pt>
+<images/noised_fully.png, id=160, 175.40532pt x 175.40532pt>
 File: images/noised_fully.png Graphic file (type png)
 <use images/noised_fully.png>
 Package pdftex.def Info: images/noised_fully.png  used on input line 258.
@@ -1510,10 +1510,6 @@ Package pdftex.def Info: images/Open-AI-Sora-White-Logo-PNG.png  used on input l
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `diffusion_models_slide.out' has not changed.
 (rerunfilecheck)             Checksum: FCFFADC3DE37BA99101A072802C7093D;1076.
 Package logreq Info: Writing requests to 'diffusion_models_slide.run.xml'.
@@ -1521,15 +1517,15 @@ Package logreq Info: Writing requests to 'diffusion_models_slide.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34842 strings out of 467871
- 722173 string characters out of 5418377
- 1507218 words of memory out of 5000000
- 62963 multiletter control sequences out of 15000+600000
+ 34836 strings out of 467871
+ 722069 string characters out of 5418377
+ 1507241 words of memory out of 5000000
+ 62957 multiletter control sequences out of 15000+600000
  644857 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,13n,123p,1996b,1470s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\parab\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcsx1000.pk> <C:\Users\parab\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcss1095.pk><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi12.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb>
-Output written on diffusion_models_slide.pdf (54 pages, 3279950 bytes).
+Output written on diffusion_models_slide.pdf (54 pages, 3279948 bytes).
 PDF statistics:
  464 PDF objects out of 1000 (max. 8388607)
  122 named destinations out of 1000 (max. 500000)
