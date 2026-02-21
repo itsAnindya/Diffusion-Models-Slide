@@ -60,6 +60,8 @@
   isbn=false
 ]{biblatex}
 
+\usetikzlibrary{overlay-beamer-styles}
+
 \addbibresource{references.bib}
 
 %──────────────────────────────────────────────────────────────────
@@ -111,6 +113,16 @@
 }
 
 \begin{frame}{Outline}
+  \begin{tikzpicture}[remember picture, overlay]
+    \foreach \r/\op in {4.8/0.04,3.3/0.06,2.0/0.09}{
+      \fill[NeonPink,opacity=\op]
+      ([xshift=0.8cm]current page.east) circle (\r cm);
+    }
+    \foreach \r/\op in {3.8/0.03,2.4/0.05,1.3/0.08}{
+      \fill[AccentPurple,opacity=\op]
+      ([xshift=0.8cm,yshift=-1.2cm]current page.north east) circle (\r cm);
+    }
+  \end{tikzpicture}
   \tableofcontents
 \end{frame}
 
@@ -144,13 +156,15 @@
 
   \pause
   \vspace{4pt}
-  \begin{block}{Generative Modeling}
-    Can a machine learn to \highlight{create new, realistic samples}
-    that are indistinguishable from real data?
-  \end{block}
+  \begin{itemize}
+    \item Can a machine learn to \highlight{create new, realistic samples}
+    that are \textit{indistinguishable} from real data?
+    \pause
+    \item In other words can it learn the underlying probability distribution of the data?
+  \end{itemize}
   \pause
   \begin{center}
-    \highlight{Diffusion models} provide a stable, high-quality solution.
+    \highlight{Diffusion models} provide a \textit{stable, high-quality} solution.
   \end{center}
 \end{frame}
 
@@ -291,7 +305,7 @@
 \section{Training}
 \begin{frame}{Training}
   \begin{center}
-    {To produce realistic images, the model must learn to reverse the noise process.}\\[20pt]
+    {\Large To produce realistic images, the model must \textbf{learn} to \highlight{reverse} the noise process.}\\[20pt]
     \pause
     {\setlength{\fboxsep}{8pt}\colorbox{AccentBlue}{\Large \highlight{But how does the model learn this reverse process?}}}
   \end{center}
@@ -337,18 +351,21 @@
     \column{0.48\textwidth}
       \begin{block}{Key Insight}
         \begin{itemize}
-          \item We add \textbf{known} noise
-          \item So we have exact labels
-          \item Training target is clear and reliable
+          \item We control the \highlight{noise process}
+          \item Added noise is mathematically defined
+          \item So the training signal is precise
+          \item This makes the objective a well-defined \textit{regression problem}
         \end{itemize}
       \end{block}
+      
+    \pause
 
     \column{0.48\textwidth}
       \begin{block}{Why It Works}
         \begin{itemize}
-          \item Model learns many small denoising steps
-          \item Small steps are easier to learn
-          \item Chaining them builds a full image
+          \item The task is simplified into \textbf{small, predictable steps}
+          \item Each stem only removes a tiny amount of noise
+          \item Repeating simple steps reconstructs complex structure
         \end{itemize}
       \end{block}
   \end{columns}
@@ -362,12 +379,17 @@
   \begin{block}{Advantages}
     \begin{itemize}
       \item \highlight{Stable training}
+      \pause
       \item \highlight{High Quality Samples}
+      \pause
       \item \highlight{Good Diversity} {\small (less mode collapse than GANs)}
+      \pause
       \item \highlight{Flexible Conditioning} {\small (text-to-image, video-generation, audio synthesis)}
-      \item \highlight{Strong Theoretical Foundation}
+      \pause
+      \item \highlight{Strong Theoretical Foundation} {\small (probabilistic modeling, score matching)}
     \end{itemize}
   \end{block}
+  \pause
 
   \vspace{6pt}
   \begin{center}
@@ -378,7 +400,9 @@
 \begin{frame}{Summary}
   \begin{center}
     \Large
-    \highlight{Diffusion models generate \textit{data} by learning to reverse a gradual noise process.}
+    Diffusion models generate realistic data by learning the \textit{underlying probability distribution} through reversing a \textit{gradual, structured noise process.}\\[20pt]
+    \pause
+    {\setlength{\fboxsep}{8pt}\colorbox{AccentBlue}{\Large \highlight{But where is Diffusion Models actually applied?}}}
   \end{center}
 \end{frame}
 
@@ -402,15 +426,21 @@
             font=\small\bfseries, text=AccentText,
             minimum size=1.2cm] (c) at (0,0) {DMs};
 
-      \node[app, fill=NeonPink]        (img)   at (150:2.4cm) {Image Synthesis};
-      \node[app, fill=AccentBlue!120]  (aud)   at (210:2.4cm) {Audio / Music};
-      \node[app, fill=NeonPink!70]     (med)   at (270:2.4cm) {Medical Imaging};
-      \node[app, fill=AccentBlue]      (threed)at (330:2.4cm) {3-D / NeRF};
-      \node[app, fill=AccentPurple!80] (mol)   at ( 30:2.4cm) {Molecular Design};
-      \node[app, fill=AccentPurple]    (vid)   at ( 90:2.4cm) {Video Generation};
+      \node[visible on=<1->, app, fill=NeonPink]        (img)    at ( 90:2.4cm) {Image Synthesis};
+      \draw[visible on=<1->, apparrow] (c) -- (img);
+      \node[visible on=<2->, app, fill=AccentBlue!120]  (aud)    at ( 30:2.4cm) {Audio / Music};
+      \draw[visible on=<2->, apparrow] (c) -- (aud);
+      \node[visible on=<3->, app, fill=NeonPink!70]     (vid)    at (330:2.4cm) {Video Generation};
+      \draw[visible on=<3->, apparrow] (c) -- (vid);
+      \node[visible on=<4->, app, fill=AccentBlue]      (threed) at (270:2.4cm) {3-D / NeRF};
+      \draw[visible on=<4->, apparrow] (c) -- (threed);
+      \node[visible on=<5->, app, fill=AccentPurple!80] (mol)    at (210:2.4cm) {Molecular Design};
+      \draw[visible on=<5->, apparrow] (c) -- (mol);
+      \node[visible on=<6->, app, fill=AccentPurple]    (med)    at (150:2.4cm) {Medical Imaging};
+      \draw[visible on=<6->, apparrow] (c) -- (med);
 
-      \foreach \dest in {img, aud, med, threed, mol, vid}
-        \draw[apparrow] (c) -- (\dest);
+      % \foreach \dest in {img, aud, med, threed, mol, vid}
+      %   \draw[apparrow] (c) -- (\dest);
     \end{tikzpicture}
   \end{center}
 \end{frame}
@@ -446,30 +476,27 @@
 % SLIDE 8 — Limitations & Open Challenges
 %══════════════════════════════════════════════════════════════════
 \section{Limitations \& Challenges}
-\begin{frame}{Limitations \& Open Challenges}
-  \begin{columns}[T]
-    \column{0.50\textwidth}
-      \begin{block}{Current Limitations}
+\begin{frame}{Current Limitations}
         \begin{itemize}
-          \item \textbf{Slow generation} — requires many denoising steps
+          \item \textbf{Slow generation:} requires many denoising steps
                 (hundreds to thousands)
-          \item \textbf{High compute cost} — training requires significant
+                \pause
+          \item \textbf{High compute cost:} training requires significant
                 GPU resources
-          \item \textbf{Large model size} — not easy to run on consumer hardware
+                \pause
+          \item \textbf{Large model size:} not easy to run on consumer hardware
         \end{itemize}
-      \end{block}
-
-    \column{0.47\textwidth}
-      \begin{block}{Open Questions}
+\end{frame}
+\begin{frame}{Open Challenges}
         \begin{itemize}
           \item Can we make generation \highlight{faster}?
                 (Active research area)
+                \pause
           \item How do we ensure generated content is \highlight{safe and ethical}?
+          \pause
           \item Can we extend to \highlight{longer videos} and
                 \highlight{interactive content}?
         \end{itemize}
-      \end{block}
-  \end{columns}
 \end{frame}
 
 %──────────────────────────────────────────────────────────────────
