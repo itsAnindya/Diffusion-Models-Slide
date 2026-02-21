@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.2)  21 FEB 2026 21:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.2)  21 FEB 2026 22:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -664,7 +664,7 @@ File: pgflibraryfadings.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))
 \sympureletters=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 46.
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 47.
  (C:\Users\parab\AppData\Local\Programs\MiKTeX\tex/latex/tools\bm.sty
 Package: bm 2025/10/21 v1.2g Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup7
@@ -932,31 +932,31 @@ Package: xparse 2025-10-09 L3 Experimental document command parser
 )
 Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
 )) (C:\Users\parab\AppData\Local\Programs\MiKTeX\tex/latex/aobs-tikz\tikzlibraryoverlay-beamer-styles.code.tex)
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 87.
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 87.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 88.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 88.
 \@quotelevel=\count506
 \@quotereset=\count507
  (diffusion_models_slide.aux)
 \openout1 = `diffusion_models_slide.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1011,60 +1011,60 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (C:\Users\parab\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 90.
+Package hyperref Info: Link coloring OFF on input line 91.
  (diffusion_models_slide.out) (diffusion_models_slide.out)
 \@outlinefile=\write6
 \openout6 = `diffusion_models_slide.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 90.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 91.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 90.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 91.
 \symnumbers=\mathgroup11
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 90.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 91.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  OT1/mathkerncmss/m/sl --> OT1/cmss/m/it on input line 90.
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/cmss/m/it on input line 91.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/mathkerncmss/bx/sl --> OT1/cmss/m/it on input line 90.
+(Font)                  OT1/mathkerncmss/bx/sl --> OT1/cmss/m/it on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 90.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 90.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 90.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 91.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 91.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 90.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 90.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 90.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 91.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 90.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 90.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 90.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 91.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 90.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 90.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 91.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 90.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 91.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 90.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 90.
+(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 90.
+(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 90.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 90.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 90.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 90.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 91.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 91.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 90.
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 91.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 90.
+(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 91.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 90.
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 91.
  (C:\Users\parab\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (C:\Users\parab\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-bibliography-dictionary-English.dict
@@ -1091,15 +1091,15 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'diffusion_models_slide.bbl' found.
  (diffusion_models_slide.bbl)
-Package biblatex Info: Reference section=0 on input line 90.
-Package biblatex Info: Reference segment=0 on input line 90.
+Package biblatex Info: Reference section=0 on input line 91.
+Package biblatex Info: Reference segment=0 on input line 91.
  (diffusion_models_slide.nav)
-Overfull \hbox (2.43333pt too wide) in paragraph at lines 112--112
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 113--113
  [] 
  []
 
 
-Overfull \vbox (56.4736pt too high) detected at line 112
+Overfull \vbox (56.4736pt too high) detected at line 113
  []
 
 [1
@@ -1110,22 +1110,22 @@ Overfull \vbox (56.4736pt too high) detected at line 112
 <images/Real_Face.png, id=106, 1003.75pt x 1003.75pt>
 File: images/Real_Face.png Graphic file (type png)
 <use images/Real_Face.png>
-Package pdftex.def Info: images/Real_Face.png  used on input line 169.
+Package pdftex.def Info: images/Real_Face.png  used on input line 170.
 (pdftex.def)             Requested size: 79.66649pt x 79.65837pt.
 <images/AI_Generated_Face_05.png, id=108, 1027.84pt x 1027.84pt>
 File: images/AI_Generated_Face_05.png Graphic file (type png)
 <use images/AI_Generated_Face_05.png>
-Package pdftex.def Info: images/AI_Generated_Face_05.png  used on input line 169.
+Package pdftex.def Info: images/AI_Generated_Face_05.png  used on input line 170.
 (pdftex.def)             Requested size: 79.66649pt x 79.65677pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 169.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 170.
  (C:\Users\parab\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 169.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 170.
  (C:\Users\parab\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 169.
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 170.
  (C:\Users\parab\AppData\Local\Programs\MiKTeX\tex/latex/sansmathaccent\ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
 ) [3
@@ -1133,33 +1133,33 @@ File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mat
  <./images/Real_Face.png> <./images/AI_Generated_Face_05.png (PNG copy)>]
 File: images/Real_Face.png Graphic file (type png)
 <use images/Real_Face.png>
-Package pdftex.def Info: images/Real_Face.png  used on input line 169.
+Package pdftex.def Info: images/Real_Face.png  used on input line 170.
 (pdftex.def)             Requested size: 79.66649pt x 79.65837pt.
 File: images/AI_Generated_Face_05.png Graphic file (type png)
 <use images/AI_Generated_Face_05.png>
-Package pdftex.def Info: images/AI_Generated_Face_05.png  used on input line 169.
+Package pdftex.def Info: images/AI_Generated_Face_05.png  used on input line 170.
 (pdftex.def)             Requested size: 79.66649pt x 79.65677pt.
  [4
 
 ]
 File: images/Real_Face.png Graphic file (type png)
 <use images/Real_Face.png>
-Package pdftex.def Info: images/Real_Face.png  used on input line 169.
+Package pdftex.def Info: images/Real_Face.png  used on input line 170.
 (pdftex.def)             Requested size: 79.66649pt x 79.65837pt.
 File: images/AI_Generated_Face_05.png Graphic file (type png)
 <use images/AI_Generated_Face_05.png>
-Package pdftex.def Info: images/AI_Generated_Face_05.png  used on input line 169.
+Package pdftex.def Info: images/AI_Generated_Face_05.png  used on input line 170.
 (pdftex.def)             Requested size: 79.66649pt x 79.65677pt.
  [5
 
 ]
 File: images/Real_Face.png Graphic file (type png)
 <use images/Real_Face.png>
-Package pdftex.def Info: images/Real_Face.png  used on input line 169.
+Package pdftex.def Info: images/Real_Face.png  used on input line 170.
 (pdftex.def)             Requested size: 79.66649pt x 79.65837pt.
 File: images/AI_Generated_Face_05.png Graphic file (type png)
 <use images/AI_Generated_Face_05.png>
-Package pdftex.def Info: images/AI_Generated_Face_05.png  used on input line 169.
+Package pdftex.def Info: images/AI_Generated_Face_05.png  used on input line 170.
 (pdftex.def)             Requested size: 79.66649pt x 79.65677pt.
  [6
 
@@ -1174,123 +1174,123 @@ Package pdftex.def Info: images/AI_Generated_Face_05.png  used on input line 169
 ] [11
 
 ]
-<images/clean.png, id=157, 175.40532pt x 175.40532pt>
+<images/clean.png, id=156, 175.40532pt x 175.40532pt>
 File: images/clean.png Graphic file (type png)
 <use images/clean.png>
-Package pdftex.def Info: images/clean.png  used on input line 257.
+Package pdftex.def Info: images/clean.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
-<images/noised_slightly.png, id=158, 175.40532pt x 175.40532pt>
+<images/noised_slightly.png, id=157, 175.40532pt x 175.40532pt>
 File: images/noised_slightly.png Graphic file (type png)
 <use images/noised_slightly.png>
-Package pdftex.def Info: images/noised_slightly.png  used on input line 257.
+Package pdftex.def Info: images/noised_slightly.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
-<images/noised_heavily.png, id=159, 175.40532pt x 175.40532pt>
+<images/noised_heavily.png, id=158, 175.40532pt x 175.40532pt>
 File: images/noised_heavily.png Graphic file (type png)
 <use images/noised_heavily.png>
-Package pdftex.def Info: images/noised_heavily.png  used on input line 257.
+Package pdftex.def Info: images/noised_heavily.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
-<images/noised_fully.png, id=160, 175.40532pt x 175.40532pt>
+<images/noised_fully.png, id=159, 175.40532pt x 175.40532pt>
 File: images/noised_fully.png Graphic file (type png)
 <use images/noised_fully.png>
-Package pdftex.def Info: images/noised_fully.png  used on input line 257.
+Package pdftex.def Info: images/noised_fully.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
  [12
 
  <./images/clean.png> <./images/noised_slightly.png> <./images/noised_heavily.png> <./images/noised_fully.png>]
 File: images/clean.png Graphic file (type png)
 <use images/clean.png>
-Package pdftex.def Info: images/clean.png  used on input line 257.
+Package pdftex.def Info: images/clean.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_slightly.png Graphic file (type png)
 <use images/noised_slightly.png>
-Package pdftex.def Info: images/noised_slightly.png  used on input line 257.
+Package pdftex.def Info: images/noised_slightly.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_heavily.png Graphic file (type png)
 <use images/noised_heavily.png>
-Package pdftex.def Info: images/noised_heavily.png  used on input line 257.
+Package pdftex.def Info: images/noised_heavily.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_fully.png Graphic file (type png)
 <use images/noised_fully.png>
-Package pdftex.def Info: images/noised_fully.png  used on input line 257.
+Package pdftex.def Info: images/noised_fully.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
  [13
 
 ]
 File: images/clean.png Graphic file (type png)
 <use images/clean.png>
-Package pdftex.def Info: images/clean.png  used on input line 257.
+Package pdftex.def Info: images/clean.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_slightly.png Graphic file (type png)
 <use images/noised_slightly.png>
-Package pdftex.def Info: images/noised_slightly.png  used on input line 257.
+Package pdftex.def Info: images/noised_slightly.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_heavily.png Graphic file (type png)
 <use images/noised_heavily.png>
-Package pdftex.def Info: images/noised_heavily.png  used on input line 257.
+Package pdftex.def Info: images/noised_heavily.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_fully.png Graphic file (type png)
 <use images/noised_fully.png>
-Package pdftex.def Info: images/noised_fully.png  used on input line 257.
+Package pdftex.def Info: images/noised_fully.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
  [14
 
 ]
 File: images/clean.png Graphic file (type png)
 <use images/clean.png>
-Package pdftex.def Info: images/clean.png  used on input line 257.
+Package pdftex.def Info: images/clean.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_slightly.png Graphic file (type png)
 <use images/noised_slightly.png>
-Package pdftex.def Info: images/noised_slightly.png  used on input line 257.
+Package pdftex.def Info: images/noised_slightly.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_heavily.png Graphic file (type png)
 <use images/noised_heavily.png>
-Package pdftex.def Info: images/noised_heavily.png  used on input line 257.
+Package pdftex.def Info: images/noised_heavily.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_fully.png Graphic file (type png)
 <use images/noised_fully.png>
-Package pdftex.def Info: images/noised_fully.png  used on input line 257.
+Package pdftex.def Info: images/noised_fully.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
  [15
 
 ]
 File: images/clean.png Graphic file (type png)
 <use images/clean.png>
-Package pdftex.def Info: images/clean.png  used on input line 257.
+Package pdftex.def Info: images/clean.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_slightly.png Graphic file (type png)
 <use images/noised_slightly.png>
-Package pdftex.def Info: images/noised_slightly.png  used on input line 257.
+Package pdftex.def Info: images/noised_slightly.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_heavily.png Graphic file (type png)
 <use images/noised_heavily.png>
-Package pdftex.def Info: images/noised_heavily.png  used on input line 257.
+Package pdftex.def Info: images/noised_heavily.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_fully.png Graphic file (type png)
 <use images/noised_fully.png>
-Package pdftex.def Info: images/noised_fully.png  used on input line 257.
+Package pdftex.def Info: images/noised_fully.png  used on input line 258.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
  [16
 
 ]
 File: images/noised_fully.png Graphic file (type png)
 <use images/noised_fully.png>
-Package pdftex.def Info: images/noised_fully.png  used on input line 303.
+Package pdftex.def Info: images/noised_fully.png  used on input line 304.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_heavily.png Graphic file (type png)
 <use images/noised_heavily.png>
-Package pdftex.def Info: images/noised_heavily.png  used on input line 303.
+Package pdftex.def Info: images/noised_heavily.png  used on input line 304.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_slightly.png Graphic file (type png)
 <use images/noised_slightly.png>
-Package pdftex.def Info: images/noised_slightly.png  used on input line 303.
+Package pdftex.def Info: images/noised_slightly.png  used on input line 304.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/clean.png Graphic file (type png)
 <use images/clean.png>
-Package pdftex.def Info: images/clean.png  used on input line 303.
+Package pdftex.def Info: images/clean.png  used on input line 304.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 
-Overfull \vbox (9.98271pt too high) detected at line 303
+Overfull \vbox (9.98271pt too high) detected at line 304
  []
 
 [17
@@ -1298,22 +1298,22 @@ Overfull \vbox (9.98271pt too high) detected at line 303
 ]
 File: images/noised_fully.png Graphic file (type png)
 <use images/noised_fully.png>
-Package pdftex.def Info: images/noised_fully.png  used on input line 303.
+Package pdftex.def Info: images/noised_fully.png  used on input line 304.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_heavily.png Graphic file (type png)
 <use images/noised_heavily.png>
-Package pdftex.def Info: images/noised_heavily.png  used on input line 303.
+Package pdftex.def Info: images/noised_heavily.png  used on input line 304.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_slightly.png Graphic file (type png)
 <use images/noised_slightly.png>
-Package pdftex.def Info: images/noised_slightly.png  used on input line 303.
+Package pdftex.def Info: images/noised_slightly.png  used on input line 304.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/clean.png Graphic file (type png)
 <use images/clean.png>
-Package pdftex.def Info: images/clean.png  used on input line 303.
+Package pdftex.def Info: images/clean.png  used on input line 304.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 
-Overfull \vbox (9.98271pt too high) detected at line 303
+Overfull \vbox (9.98271pt too high) detected at line 304
  []
 
 [18
@@ -1321,22 +1321,22 @@ Overfull \vbox (9.98271pt too high) detected at line 303
 ]
 File: images/noised_fully.png Graphic file (type png)
 <use images/noised_fully.png>
-Package pdftex.def Info: images/noised_fully.png  used on input line 303.
+Package pdftex.def Info: images/noised_fully.png  used on input line 304.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_heavily.png Graphic file (type png)
 <use images/noised_heavily.png>
-Package pdftex.def Info: images/noised_heavily.png  used on input line 303.
+Package pdftex.def Info: images/noised_heavily.png  used on input line 304.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_slightly.png Graphic file (type png)
 <use images/noised_slightly.png>
-Package pdftex.def Info: images/noised_slightly.png  used on input line 303.
+Package pdftex.def Info: images/noised_slightly.png  used on input line 304.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/clean.png Graphic file (type png)
 <use images/clean.png>
-Package pdftex.def Info: images/clean.png  used on input line 303.
+Package pdftex.def Info: images/clean.png  used on input line 304.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 
-Overfull \vbox (9.98271pt too high) detected at line 303
+Overfull \vbox (9.98271pt too high) detected at line 304
  []
 
 [19
@@ -1344,22 +1344,22 @@ Overfull \vbox (9.98271pt too high) detected at line 303
 ]
 File: images/noised_fully.png Graphic file (type png)
 <use images/noised_fully.png>
-Package pdftex.def Info: images/noised_fully.png  used on input line 303.
+Package pdftex.def Info: images/noised_fully.png  used on input line 304.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_heavily.png Graphic file (type png)
 <use images/noised_heavily.png>
-Package pdftex.def Info: images/noised_heavily.png  used on input line 303.
+Package pdftex.def Info: images/noised_heavily.png  used on input line 304.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_slightly.png Graphic file (type png)
 <use images/noised_slightly.png>
-Package pdftex.def Info: images/noised_slightly.png  used on input line 303.
+Package pdftex.def Info: images/noised_slightly.png  used on input line 304.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/clean.png Graphic file (type png)
 <use images/clean.png>
-Package pdftex.def Info: images/clean.png  used on input line 303.
+Package pdftex.def Info: images/clean.png  used on input line 304.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 
-Overfull \vbox (9.98271pt too high) detected at line 303
+Overfull \vbox (9.98271pt too high) detected at line 304
  []
 
 [20
@@ -1367,22 +1367,22 @@ Overfull \vbox (9.98271pt too high) detected at line 303
 ]
 File: images/noised_fully.png Graphic file (type png)
 <use images/noised_fully.png>
-Package pdftex.def Info: images/noised_fully.png  used on input line 303.
+Package pdftex.def Info: images/noised_fully.png  used on input line 304.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_heavily.png Graphic file (type png)
 <use images/noised_heavily.png>
-Package pdftex.def Info: images/noised_heavily.png  used on input line 303.
+Package pdftex.def Info: images/noised_heavily.png  used on input line 304.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/noised_slightly.png Graphic file (type png)
 <use images/noised_slightly.png>
-Package pdftex.def Info: images/noised_slightly.png  used on input line 303.
+Package pdftex.def Info: images/noised_slightly.png  used on input line 304.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 File: images/clean.png Graphic file (type png)
 <use images/clean.png>
-Package pdftex.def Info: images/clean.png  used on input line 303.
+Package pdftex.def Info: images/clean.png  used on input line 304.
 (pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 
-Overfull \vbox (9.98271pt too high) detected at line 303
+Overfull \vbox (9.98271pt too high) detected at line 304
  []
 
 [21
@@ -1435,47 +1435,47 @@ Overfull \vbox (9.98271pt too high) detected at line 303
 <images/Midjourney-White-Logo-PNG.png, id=327, 3011.25pt x 2513.39pt>
 File: images/Midjourney-White-Logo-PNG.png Graphic file (type png)
 <use images/Midjourney-White-Logo-PNG.png>
-Package pdftex.def Info: images/Midjourney-White-Logo-PNG.png  used on input line 473.
+Package pdftex.def Info: images/Midjourney-White-Logo-PNG.png  used on input line 474.
 (pdftex.def)             Requested size: 68.14075pt x 56.9055pt.
 <images/white-dall-e-logo-png.png, id=328, 1505.625pt x 413.545pt>
 File: images/white-dall-e-logo-png.png Graphic file (type png)
 <use images/white-dall-e-logo-png.png>
-Package pdftex.def Info: images/white-dall-e-logo-png.png  used on input line 473.
+Package pdftex.def Info: images/white-dall-e-logo-png.png  used on input line 474.
 (pdftex.def)             Requested size: 108.75871pt x 29.87547pt.
 <images/Open-AI-Sora-White-Logo-PNG.png, id=329, 3011.25pt x 1191.45125pt>
 File: images/Open-AI-Sora-White-Logo-PNG.png Graphic file (type png)
 <use images/Open-AI-Sora-White-Logo-PNG.png>
-Package pdftex.def Info: images/Open-AI-Sora-White-Logo-PNG.png  used on input line 473.
+Package pdftex.def Info: images/Open-AI-Sora-White-Logo-PNG.png  used on input line 474.
 (pdftex.def)             Requested size: 107.83975pt x 42.67912pt.
  [44
 
  <./images/Midjourney-White-Logo-PNG.png> <./images/white-dall-e-logo-png.png> <./images/Open-AI-Sora-White-Logo-PNG.png>]
 File: images/Midjourney-White-Logo-PNG.png Graphic file (type png)
 <use images/Midjourney-White-Logo-PNG.png>
-Package pdftex.def Info: images/Midjourney-White-Logo-PNG.png  used on input line 473.
+Package pdftex.def Info: images/Midjourney-White-Logo-PNG.png  used on input line 474.
 (pdftex.def)             Requested size: 68.14075pt x 56.9055pt.
 File: images/white-dall-e-logo-png.png Graphic file (type png)
 <use images/white-dall-e-logo-png.png>
-Package pdftex.def Info: images/white-dall-e-logo-png.png  used on input line 473.
+Package pdftex.def Info: images/white-dall-e-logo-png.png  used on input line 474.
 (pdftex.def)             Requested size: 108.75871pt x 29.87547pt.
 File: images/Open-AI-Sora-White-Logo-PNG.png Graphic file (type png)
 <use images/Open-AI-Sora-White-Logo-PNG.png>
-Package pdftex.def Info: images/Open-AI-Sora-White-Logo-PNG.png  used on input line 473.
+Package pdftex.def Info: images/Open-AI-Sora-White-Logo-PNG.png  used on input line 474.
 (pdftex.def)             Requested size: 107.83975pt x 42.67912pt.
  [45
 
 ]
 File: images/Midjourney-White-Logo-PNG.png Graphic file (type png)
 <use images/Midjourney-White-Logo-PNG.png>
-Package pdftex.def Info: images/Midjourney-White-Logo-PNG.png  used on input line 473.
+Package pdftex.def Info: images/Midjourney-White-Logo-PNG.png  used on input line 474.
 (pdftex.def)             Requested size: 68.14075pt x 56.9055pt.
 File: images/white-dall-e-logo-png.png Graphic file (type png)
 <use images/white-dall-e-logo-png.png>
-Package pdftex.def Info: images/white-dall-e-logo-png.png  used on input line 473.
+Package pdftex.def Info: images/white-dall-e-logo-png.png  used on input line 474.
 (pdftex.def)             Requested size: 108.75871pt x 29.87547pt.
 File: images/Open-AI-Sora-White-Logo-PNG.png Graphic file (type png)
 <use images/Open-AI-Sora-White-Logo-PNG.png>
-Package pdftex.def Info: images/Open-AI-Sora-White-Logo-PNG.png  used on input line 473.
+Package pdftex.def Info: images/Open-AI-Sora-White-Logo-PNG.png  used on input line 474.
 (pdftex.def)             Requested size: 107.83975pt x 42.67912pt.
  [46
 
@@ -1510,6 +1510,10 @@ Package pdftex.def Info: images/Open-AI-Sora-White-Logo-PNG.png  used on input l
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `diffusion_models_slide.out' has not changed.
 (rerunfilecheck)             Checksum: FCFFADC3DE37BA99101A072802C7093D;1076.
 Package logreq Info: Writing requests to 'diffusion_models_slide.run.xml'.
@@ -1517,15 +1521,15 @@ Package logreq Info: Writing requests to 'diffusion_models_slide.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34840 strings out of 467871
- 722130 string characters out of 5418377
+ 34842 strings out of 467871
+ 722173 string characters out of 5418377
  1507218 words of memory out of 5000000
- 62961 multiletter control sequences out of 15000+600000
+ 62963 multiletter control sequences out of 15000+600000
  644857 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,13n,123p,1996b,1470s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\parab\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcsx1000.pk> <C:\Users\parab\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcss1095.pk><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi12.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb>
-Output written on diffusion_models_slide.pdf (54 pages, 3279956 bytes).
+Output written on diffusion_models_slide.pdf (54 pages, 3279950 bytes).
 PDF statistics:
  464 PDF objects out of 1000 (max. 8388607)
  122 named destinations out of 1000 (max. 500000)
