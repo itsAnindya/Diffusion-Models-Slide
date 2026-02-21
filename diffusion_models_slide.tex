@@ -346,47 +346,68 @@
   \end{columns}
 \end{frame}
 
+\begin{frame}{Summary}
+  \begin{center}
+    \Large
+    \highlight{Diffusion models generate \textit{data} by learning to reverse a gradual noise process.}
+  \end{center}
+\end{frame}
+
 %══════════════════════════════════════════════════════════════════
 % SLIDE 7 — Applications
 %══════════════════════════════════════════════════════════════════
 \section{Applications}
 \begin{frame}{Applications}
-  \begin{columns}[T]
-    \column{0.55\textwidth}
-      \vspace{6pt}
-      \begin{tikzpicture}[
-        app/.style={rounded corners=4pt,
-                    minimum width=2.4cm, minimum height=0.58cm,
-                    font=\scriptsize\bfseries, text=white,
-                    inner sep=4pt, align=center},
-        apparrow/.style={-{Stealth[length=2mm]},
-                         LightGray!65, line width=0.6pt},
-        every node/.style={font=\scriptsize}]
+  \vspace{6pt}
+  \begin{center}
+    \begin{tikzpicture}[
+      app/.style={rounded corners=4pt,
+                  minimum width=2.4cm, minimum height=0.58cm,
+                  font=\scriptsize\bfseries, text=white,
+                  inner sep=4pt, align=center},
+      apparrow/.style={-{Stealth[length=2mm]},
+                       LightGray!65, line width=0.6pt},
+      every node/.style={font=\scriptsize}]
 
-        \node[draw=NeonPink, circle, fill=DarkBlue,
-              font=\small\bfseries, text=AccentText,
-              minimum size=1.2cm] (c) at (0,0) {DMs};
+      \node[draw=NeonPink, circle, fill=DarkBlue,
+            font=\small\bfseries, text=AccentText,
+            minimum size=1.2cm] (c) at (0,0) {DMs};
 
-        \node[app, fill=NeonPink]        (img)   at (150:2.4cm) {Image Synthesis};
-        \node[app, fill=AccentBlue!120]  (aud)   at (210:2.4cm) {Audio / Music};
-        \node[app, fill=NeonPink!70]     (med)   at (270:2.4cm) {Medical Imaging};
-        \node[app, fill=AccentBlue]      (threed)at (330:2.4cm) {3-D / NeRF};
-        \node[app, fill=AccentPurple!80] (mol)   at ( 30:2.4cm) {Molecular Design};
-        \node[app, fill=AccentPurple]    (vid)   at ( 90:2.4cm) {Video Generation};
+      \node[app, fill=NeonPink]        (img)   at (150:2.4cm) {Image Synthesis};
+      \node[app, fill=AccentBlue!120]  (aud)   at (210:2.4cm) {Audio / Music};
+      \node[app, fill=NeonPink!70]     (med)   at (270:2.4cm) {Medical Imaging};
+      \node[app, fill=AccentBlue]      (threed)at (330:2.4cm) {3-D / NeRF};
+      \node[app, fill=AccentPurple!80] (mol)   at ( 30:2.4cm) {Molecular Design};
+      \node[app, fill=AccentPurple]    (vid)   at ( 90:2.4cm) {Video Generation};
 
-        \foreach \dest in {img, aud, med, threed, mol, vid}
-          \draw[apparrow] (c) -- (\dest);
-      \end{tikzpicture}
+      \foreach \dest in {img, aud, med, threed, mol, vid}
+        \draw[apparrow] (c) -- (\dest);
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
 
-    \column{0.42\textwidth}
-      \textbf{Real-world tools powered by diffusion:}
-      \begin{itemize}
-        \item \highlight{DALL·E 3} — text-to-image
-        \item \highlight{Stable Diffusion} — open-source image generation
-        \item \highlight{Midjourney} — art and design
-        \item \highlight{Sora} — text-to-video
-      \end{itemize}
-  \end{columns}
+\begin{frame}{Real-World Tools Powered by Diffusion}
+  \begin{center}
+    \begin{minipage}{0.36\textwidth}
+      \centering
+      \includegraphics[height=2cm]{images/Midjourney-White-Logo-PNG.png}\\[5pt]
+      {\small \highlight{Midjourney}}
+    \end{minipage}
+
+    \vspace{12pt}
+
+    \begin{minipage}{0.36\textwidth}
+      \centering
+      \includegraphics[height=1.05cm]{images/white-dall-e-logo-png.png}\\[5pt]
+      {\small \highlight{DALL·E}}
+    \end{minipage}
+    \hspace{0.08\textwidth}
+    \begin{minipage}{0.36\textwidth}
+      \centering
+      \includegraphics[height=1.5cm]{images/Open-AI-Sora-White-Logo-PNG.png}\\[5pt]
+      {\small \highlight{OpenAI Sora}}
+    \end{minipage}
+  \end{center}
 \end{frame}
 
 %══════════════════════════════════════════════════════════════════
@@ -417,21 +438,6 @@
         \end{itemize}
       \end{block}
   \end{columns}
-
-  \vspace{12pt}
-  % \begin{center}
-  %   \begin{tikzpicture}
-  %     \node[draw=NeonPink, rounded corners=6pt,
-  %           fill=AccentBlue!70, text=SoftWhite,
-  %           inner sep=10pt, text width=11cm, align=center,
-  %           font=\normalsize]{
-  %       Diffusion models are \textbf{young}, \textbf{powerful},
-  %       and \textbf{improving fast}.\\[3pt]
-  %       The best results in generative AI today
-  %       are almost all diffusion-based.
-  %     };
-  %   \end{tikzpicture}
-  % \end{center}
 \end{frame}
 
 %──────────────────────────────────────────────────────────────────
