@@ -17,3 +17,5 @@ diffusion_models_slide.aux
 *.aux
 *.log
 *.nav
+diffusion_models_slide.aux
+.gitignore

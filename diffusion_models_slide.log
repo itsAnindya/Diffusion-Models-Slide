@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.2)  20 FEB 2026 05:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.2)  21 FEB 2026 18:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1175,35 +1175,297 @@ Overfull \vbox (2.70227pt too high) detected at line 155
 ] [10
 
 ]
-Overfull \vbox (13.94951pt too high) detected at line 243
- []
+<images/clean.png, id=152, 175.40532pt x 175.40532pt>
+File: images/clean.png Graphic file (type png)
+<use images/clean.png>
+Package pdftex.def Info: images/clean.png  used on input line 243.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+<images/noised_slightly.png, id=153, 175.40532pt x 175.40532pt>
+File: images/noised_slightly.png Graphic file (type png)
+<use images/noised_slightly.png>
+Package pdftex.def Info: images/noised_slightly.png  used on input line 243.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+<images/noised_heavily.png, id=154, 175.40532pt x 175.40532pt>
+File: images/noised_heavily.png Graphic file (type png)
+<use images/noised_heavily.png>
+Package pdftex.def Info: images/noised_heavily.png  used on input line 243.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+<images/noised_fully.png, id=155, 175.40532pt x 175.40532pt>
+File: images/noised_fully.png Graphic file (type png)
+<use images/noised_fully.png>
+Package pdftex.def Info: images/noised_fully.png  used on input line 243.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+ [11
 
-[11
-
-] [12
-
-] [13
-
-] [14
-
-] [15
-
-] [16
+ <./images/clean.png> <./images/noised_slightly.png> <./images/noised_heavily.png> <./images/noised_fully.png>]
+File: images/clean.png Graphic file (type png)
+<use images/clean.png>
+Package pdftex.def Info: images/clean.png  used on input line 243.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_slightly.png Graphic file (type png)
+<use images/noised_slightly.png>
+Package pdftex.def Info: images/noised_slightly.png  used on input line 243.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_heavily.png Graphic file (type png)
+<use images/noised_heavily.png>
+Package pdftex.def Info: images/noised_heavily.png  used on input line 243.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_fully.png Graphic file (type png)
+<use images/noised_fully.png>
+Package pdftex.def Info: images/noised_fully.png  used on input line 243.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+ [12
 
 ]
-Overfull \hbox (43.96883pt too wide) in paragraph at lines 347--347
- [][] 
+File: images/clean.png Graphic file (type png)
+<use images/clean.png>
+Package pdftex.def Info: images/clean.png  used on input line 243.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_slightly.png Graphic file (type png)
+<use images/noised_slightly.png>
+Package pdftex.def Info: images/noised_slightly.png  used on input line 243.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_heavily.png Graphic file (type png)
+<use images/noised_heavily.png>
+Package pdftex.def Info: images/noised_heavily.png  used on input line 243.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_fully.png Graphic file (type png)
+<use images/noised_fully.png>
+Package pdftex.def Info: images/noised_fully.png  used on input line 243.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+ [13
+
+]
+File: images/clean.png Graphic file (type png)
+<use images/clean.png>
+Package pdftex.def Info: images/clean.png  used on input line 243.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_slightly.png Graphic file (type png)
+<use images/noised_slightly.png>
+Package pdftex.def Info: images/noised_slightly.png  used on input line 243.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_heavily.png Graphic file (type png)
+<use images/noised_heavily.png>
+Package pdftex.def Info: images/noised_heavily.png  used on input line 243.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_fully.png Graphic file (type png)
+<use images/noised_fully.png>
+Package pdftex.def Info: images/noised_fully.png  used on input line 243.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+ [14
+
+]
+File: images/clean.png Graphic file (type png)
+<use images/clean.png>
+Package pdftex.def Info: images/clean.png  used on input line 243.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_slightly.png Graphic file (type png)
+<use images/noised_slightly.png>
+Package pdftex.def Info: images/noised_slightly.png  used on input line 243.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_heavily.png Graphic file (type png)
+<use images/noised_heavily.png>
+Package pdftex.def Info: images/noised_heavily.png  used on input line 243.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_fully.png Graphic file (type png)
+<use images/noised_fully.png>
+Package pdftex.def Info: images/noised_fully.png  used on input line 243.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+ [15
+
+]
+File: images/noised_fully.png Graphic file (type png)
+<use images/noised_fully.png>
+Package pdftex.def Info: images/noised_fully.png  used on input line 289.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_heavily.png Graphic file (type png)
+<use images/noised_heavily.png>
+Package pdftex.def Info: images/noised_heavily.png  used on input line 289.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_slightly.png Graphic file (type png)
+<use images/noised_slightly.png>
+Package pdftex.def Info: images/noised_slightly.png  used on input line 289.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/clean.png Graphic file (type png)
+<use images/clean.png>
+Package pdftex.def Info: images/clean.png  used on input line 289.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+
+Overfull \vbox (9.98271pt too high) detected at line 289
+ []
+
+[16
+
+]
+File: images/noised_fully.png Graphic file (type png)
+<use images/noised_fully.png>
+Package pdftex.def Info: images/noised_fully.png  used on input line 289.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_heavily.png Graphic file (type png)
+<use images/noised_heavily.png>
+Package pdftex.def Info: images/noised_heavily.png  used on input line 289.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_slightly.png Graphic file (type png)
+<use images/noised_slightly.png>
+Package pdftex.def Info: images/noised_slightly.png  used on input line 289.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/clean.png Graphic file (type png)
+<use images/clean.png>
+Package pdftex.def Info: images/clean.png  used on input line 289.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+
+Overfull \vbox (9.98271pt too high) detected at line 289
  []
 
 [17
 
-] [18
+]
+File: images/noised_fully.png Graphic file (type png)
+<use images/noised_fully.png>
+Package pdftex.def Info: images/noised_fully.png  used on input line 289.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_heavily.png Graphic file (type png)
+<use images/noised_heavily.png>
+Package pdftex.def Info: images/noised_heavily.png  used on input line 289.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_slightly.png Graphic file (type png)
+<use images/noised_slightly.png>
+Package pdftex.def Info: images/noised_slightly.png  used on input line 289.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/clean.png Graphic file (type png)
+<use images/clean.png>
+Package pdftex.def Info: images/clean.png  used on input line 289.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
 
-] [19
+Overfull \vbox (9.98271pt too high) detected at line 289
+ []
 
-] [20
+[18
+
+]
+File: images/noised_fully.png Graphic file (type png)
+<use images/noised_fully.png>
+Package pdftex.def Info: images/noised_fully.png  used on input line 289.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_heavily.png Graphic file (type png)
+<use images/noised_heavily.png>
+Package pdftex.def Info: images/noised_heavily.png  used on input line 289.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_slightly.png Graphic file (type png)
+<use images/noised_slightly.png>
+Package pdftex.def Info: images/noised_slightly.png  used on input line 289.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/clean.png Graphic file (type png)
+<use images/clean.png>
+Package pdftex.def Info: images/clean.png  used on input line 289.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+
+Overfull \vbox (9.98271pt too high) detected at line 289
+ []
+
+[19
+
+]
+File: images/noised_fully.png Graphic file (type png)
+<use images/noised_fully.png>
+Package pdftex.def Info: images/noised_fully.png  used on input line 289.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_heavily.png Graphic file (type png)
+<use images/noised_heavily.png>
+Package pdftex.def Info: images/noised_heavily.png  used on input line 289.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/noised_slightly.png Graphic file (type png)
+<use images/noised_slightly.png>
+Package pdftex.def Info: images/noised_slightly.png  used on input line 289.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+File: images/clean.png Graphic file (type png)
+<use images/clean.png>
+Package pdftex.def Info: images/clean.png  used on input line 289.
+(pdftex.def)             Requested size: 85.36052pt x 85.35826pt.
+
+Overfull \vbox (9.98271pt too high) detected at line 289
+ []
+
+[20
 
 ] [21
+
+] [22
+
+] [23
+
+] [24
+
+] [25
+
+] [26
+
+] [27
+
+] [28
+
+]
+
+LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
+(Font)              using `OT1/cmss/bx/n' instead on input line 383.
+
+[29
+
+] [30
+
+]
+<images/Midjourney-White-Logo-PNG.png, id=259, 3011.25pt x 2513.39pt>
+File: images/Midjourney-White-Logo-PNG.png Graphic file (type png)
+<use images/Midjourney-White-Logo-PNG.png>
+Package pdftex.def Info: images/Midjourney-White-Logo-PNG.png  used on input line 443.
+(pdftex.def)             Requested size: 68.14075pt x 56.9055pt.
+<images/white-dall-e-logo-png.png, id=260, 1505.625pt x 413.545pt>
+File: images/white-dall-e-logo-png.png Graphic file (type png)
+<use images/white-dall-e-logo-png.png>
+Package pdftex.def Info: images/white-dall-e-logo-png.png  used on input line 443.
+(pdftex.def)             Requested size: 108.75871pt x 29.87547pt.
+<images/Open-AI-Sora-White-Logo-PNG.png, id=261, 3011.25pt x 1191.45125pt>
+File: images/Open-AI-Sora-White-Logo-PNG.png Graphic file (type png)
+<use images/Open-AI-Sora-White-Logo-PNG.png>
+Package pdftex.def Info: images/Open-AI-Sora-White-Logo-PNG.png  used on input line 443.
+(pdftex.def)             Requested size: 107.83975pt x 42.67912pt.
+ [31
+
+ <./images/Midjourney-White-Logo-PNG.png> <./images/white-dall-e-logo-png.png> <./images/Open-AI-Sora-White-Logo-PNG.png>]
+File: images/Midjourney-White-Logo-PNG.png Graphic file (type png)
+<use images/Midjourney-White-Logo-PNG.png>
+Package pdftex.def Info: images/Midjourney-White-Logo-PNG.png  used on input line 443.
+(pdftex.def)             Requested size: 68.14075pt x 56.9055pt.
+File: images/white-dall-e-logo-png.png Graphic file (type png)
+<use images/white-dall-e-logo-png.png>
+Package pdftex.def Info: images/white-dall-e-logo-png.png  used on input line 443.
+(pdftex.def)             Requested size: 108.75871pt x 29.87547pt.
+File: images/Open-AI-Sora-White-Logo-PNG.png Graphic file (type png)
+<use images/Open-AI-Sora-White-Logo-PNG.png>
+Package pdftex.def Info: images/Open-AI-Sora-White-Logo-PNG.png  used on input line 443.
+(pdftex.def)             Requested size: 107.83975pt x 42.67912pt.
+ [32
+
+]
+File: images/Midjourney-White-Logo-PNG.png Graphic file (type png)
+<use images/Midjourney-White-Logo-PNG.png>
+Package pdftex.def Info: images/Midjourney-White-Logo-PNG.png  used on input line 443.
+(pdftex.def)             Requested size: 68.14075pt x 56.9055pt.
+File: images/white-dall-e-logo-png.png Graphic file (type png)
+<use images/white-dall-e-logo-png.png>
+Package pdftex.def Info: images/white-dall-e-logo-png.png  used on input line 443.
+(pdftex.def)             Requested size: 108.75871pt x 29.87547pt.
+File: images/Open-AI-Sora-White-Logo-PNG.png Graphic file (type png)
+<use images/Open-AI-Sora-White-Logo-PNG.png>
+Package pdftex.def Info: images/Open-AI-Sora-White-Logo-PNG.png  used on input line 443.
+(pdftex.def)             Requested size: 107.83975pt x 42.67912pt.
+ [33
+
+] [34
+
+] [35
+
+] [36
 
 ]
 \tf@nav=\write7
@@ -1220,24 +1482,28 @@ Overfull \hbox (43.96883pt too wide) in paragraph at lines 347--347
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
 Package rerunfilecheck Info: File `diffusion_models_slide.out' has not changed.
-(rerunfilecheck)             Checksum: 6FA71EBAB779888035F1D2239B74F260;970.
+(rerunfilecheck)             Checksum: FCFFADC3DE37BA99101A072802C7093D;1076.
 Package logreq Info: Writing requests to 'diffusion_models_slide.run.xml'.
 \openout1 = `diffusion_models_slide.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34695 strings out of 467871
- 718060 string characters out of 5418377
- 1505504 words of memory out of 5000000
- 62878 multiletter control sequences out of 15000+600000
- 652913 words of font info for 117 fonts, out of 8000000 for 9000
+ 34725 strings out of 467871
+ 719106 string characters out of 5418377
+ 1505506 words of memory out of 5000000
+ 62886 multiletter control sequences out of 15000+600000
+ 644498 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,13n,123p,1996b,1470s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\parab\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcsx1095.pk> <C:\Users\parab\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcss1095.pk><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi12.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on diffusion_models_slide.pdf (21 pages, 2457567 bytes).
+ <C:\Users\parab\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcsx1000.pk> <C:\Users\parab\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcss1095.pk><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi12.pfb><C:/Users/parab/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb>
+Output written on diffusion_models_slide.pdf (36 pages, 3243768 bytes).
 PDF statistics:
- 270 PDF objects out of 1000 (max. 8388607)
- 56 named destinations out of 1000 (max. 500000)
- 221 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 362 PDF objects out of 1000 (max. 8388607)
+ 86 named destinations out of 1000 (max. 500000)
+ 256 words of extra memory for PDF output out of 10000 (max. 10000000)
 

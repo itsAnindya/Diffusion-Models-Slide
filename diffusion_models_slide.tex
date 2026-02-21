@@ -186,27 +186,55 @@
         {Learn to reverse this process step by step};
 
     \end{tikzpicture}
+    \pause[5]
+
+    \vspace{6pt}
+    
+    \begin{block}{We Essentially Have Two Diffusion Processes}
+      \begin{itemize}
+        \item The \textbf{Forward Diffusion Process} that gradually adds noise.\\
+        \item The \textbf{Reverse Diffusion Process} that removes noise step by step.\\
+      \end{itemize}
+    \end{block}
   \end{center}
 \end{frame}
 
 %══════════════════════════════════════════════════════════════════
 % SLIDE 3 — The Forward Process: Adding Noise
 %══════════════════════════════════════════════════════════════════
-\section{Forward Process}
-\begin{frame}{The Forward Process: Adding Noise}
+\section{Forward Diffusion Process}
+\begin{frame}{The Forward Diffusion Process: Adding Noise}
 
   \vspace{10pt}
   \begin{center}
-    %% >>> REPLACE with an actual noising-sequence image <<<
-    %% \includegraphics[width=0.92\linewidth]{img/forward_process.png}
-    \begin{tikzpicture}
-      \node[draw=LightGray, dashed, rounded corners=5pt,
-            minimum width=13cm, minimum height=3.8cm,
-            text=LightGray, font=\small, align=center]
-        {\textit{Insert image: progressive noising sequence}\\[4pt]
-         Clean image $\to$ slightly noisy $\to$ more noisy $\to$ \dots\ $\to$ pure noise};
-    \end{tikzpicture}
+    \begin{minipage}{0.22\linewidth}
+      \centering
+      \includegraphics[height=3.0cm,keepaspectratio]{images/clean.png}\\[2pt]
+      {\scriptsize Clean Image}
+    \end{minipage}
+    \pause
+    \hfill
+    \begin{minipage}{0.22\linewidth}
+      \centering
+      \includegraphics[height=3.0cm,keepaspectratio]{images/noised_slightly.png}\\[2pt]
+      {\scriptsize Slightly Noisy}
+    \end{minipage}
+    \pause
+    \hfill
+    \begin{minipage}{0.22\linewidth}
+      \centering
+      \includegraphics[height=3.0cm,keepaspectratio]{images/noised_heavily.png}\\[2pt]
+      {\scriptsize Heavily Noisy}
+    \end{minipage}
+    \pause
+    \hfill
+    \begin{minipage}{0.22\linewidth}
+      \centering
+      \includegraphics[height=3.0cm,keepaspectratio]{images/noised_fully.png}\\[2pt]
+      {\scriptsize Pure Noise}
+    \end{minipage}
   \end{center}
+  \pause
 
   \begin{block}{What Happens}
     Take a real image and add a \emph{tiny} bit of random noise.
@@ -217,21 +245,39 @@
 %══════════════════════════════════════════════════════════════════
 % SLIDE 4 — The Reverse Process: Removing Noise
 %══════════════════════════════════════════════════════════════════
-\section{Reverse Process}
-\begin{frame}{The Reverse Process: Removing Noise}
+\section{Reverse Diffusion Process}
+\begin{frame}{The Reverse Diffusion Process: Removing Noise}
 
   \vspace{10pt}
   \begin{center}
-    %% >>> REPLACE with an actual denoising-sequence image <<<
-    %% \includegraphics[width=0.92\linewidth]{img/reverse_process.png}
-    \begin{tikzpicture}
-      \node[draw=LightGray, dashed, rounded corners=5pt,
-            minimum width=13cm, minimum height=3.8cm,
-            text=LightGray, font=\small, align=center]
-        {\textit{Insert image: progressive denoising sequence}\\[4pt]
-         Pure noise $\to$ rough shape $\to$ clearer structure $\to$ final image};
-    \end{tikzpicture}
+    \begin{minipage}{0.22\linewidth}
+      \centering
+      \includegraphics[height=3.0cm,keepaspectratio]{images/noised_fully.png}\\[2pt]
+      {\scriptsize Pure Noise}
+    \end{minipage}
+    \pause
+    \hfill
+    \begin{minipage}{0.22\linewidth}
+      \centering
+      \includegraphics[height=3.0cm,keepaspectratio]{images/noised_heavily.png}\\[2pt]
+      {\scriptsize Slightly Less Noisy}
+    \end{minipage}
+    \pause
+    \hfill
+    \begin{minipage}{0.22\linewidth}
+      \centering
+      \includegraphics[height=3.0cm,keepaspectratio]{images/noised_slightly.png}\\[2pt]
+      {\scriptsize Almost Denoised}
+    \end{minipage}
+    \pause
+    \hfill
+    \begin{minipage}{0.22\linewidth}
+      \centering
+      \includegraphics[height=3.0cm,keepaspectratio]{images/clean.png}\\[2pt]
+      {\scriptsize Fully Denoised}
+    \end{minipage}
   \end{center}
+  \pause
 
   \begin{block}{How Generation Works}
     \begin{itemize}
@@ -242,10 +288,18 @@
   \end{block}
 \end{frame}
 
+\section{Training}
+\begin{frame}{Training}
+  \begin{center}
+    {To produce realistic images, the model must learn to reverse the noise process.}\\[20pt]
+    \pause
+    {\setlength{\fboxsep}{8pt}\colorbox{AccentBlue}{\Large \highlight{But how does the model learn this reverse process?}}}
+  \end{center}
+\end{frame}
+
 %══════════════════════════════════════════════════════════════════
 % SLIDE 5 — How Do We Train It?
 %══════════════════════════════════════════════════════════════════
-\section{Training}
 \begin{frame}{How Do We Train It?}
 
   \begin{center}
@@ -305,45 +359,20 @@
 %══════════════════════════════════════════════════════════════════
 
 \begin{frame}{Why Diffusion Models Work So Well}
+  \begin{block}{Advantages}
+    \begin{itemize}
+      \item \highlight{Stable training}
+      \item \highlight{High Quality Samples}
+      \item \highlight{Good Diversity} {\small (less mode collapse than GANs)}
+      \item \highlight{Flexible Conditioning} {\small (text-to-image, video-generation, audio synthesis)}
+      \item \highlight{Strong Theoretical Foundation}
+    \end{itemize}
+  \end{block}
 
-  \begin{columns}[T]
-    \column{0.55\textwidth}
-      \begin{block}{Advantages}
-        \begin{itemize}
-          \item \highlight{Stable training} no adversarial game; just predict noise
-          \item \highlight{Small steps} each denoising step is a tiny, easy task
-          \item \highlight{High quality} state-of-the-art image fidelity
-          \item \highlight{Flexible} works on images, audio, video, 3-D, molecules\ldots
-        \end{itemize}
-      \end{block}
-
-      % \vspace{8pt}
-
-    \column{0.42\textwidth}
-      \centering
-      \vspace{6pt}
-      % Quality-stability scatter (simplified)
-      \begin{tikzpicture}[scale=0.9]
-        \draw[->,thick,white] (0,0) -- (4.5,0)
-              node[right,font=\scriptsize]{Sample Quality};
-        \draw[->,thick,white] (0,0) -- (0,4.2)
-              node[above,font=\scriptsize]{Training Stability};
-
-        \node[circle,fill=AccentPurple,minimum size=24pt,
-              font=\scriptsize\bfseries,text=white]
-              at (3.4,0.9) {GAN};
-        \node[circle,fill=AccentBlue,minimum size=24pt,
-              font=\scriptsize\bfseries,text=white]
-              at (1.3,3.0) {VAE};
-        \node[circle,fill=NeonPink,minimum size=28pt,
-              font=\scriptsize\bfseries,text=white]
-              at (3.6,3.5) {Diff.};
-
-        \draw[dashed,AccentText,->] (2.4,3.8) -- (3.35,3.55);
-        \node[AccentText,font=\scriptsize,align=center] at (1.8,4.1)
-            {Best of\\ both worlds};
-      \end{tikzpicture}
-  \end{columns}
+  \vspace{6pt}
+  \begin{center}
+    \soft{In practice, diffusion models combine reliability with strong output quality.}
+  \end{center}
 \end{frame}
 
 \begin{frame}{Summary}
@@ -386,25 +415,28 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{Real-World Tools Powered by Diffusion}
+\begin{frame}{Some Real-World Tools Powered by Diffusion}
   \begin{center}
     \begin{minipage}{0.36\textwidth}
       \centering
       \includegraphics[height=2cm]{images/Midjourney-White-Logo-PNG.png}\\[5pt]
       {\small \highlight{Midjourney}}
     \end{minipage}
-
-    \vspace{12pt}
+    \pause
+    \vspace{8pt}
 
     \begin{minipage}{0.36\textwidth}
       \centering
       \includegraphics[height=1.05cm]{images/white-dall-e-logo-png.png}\\[5pt]
+      \vspace{13pt}
       {\small \highlight{DALL·E}}
     \end{minipage}
+    \pause
     \hspace{0.08\textwidth}
     \begin{minipage}{0.36\textwidth}
+      \vspace{6pt}
       \centering
-      \includegraphics[height=1.5cm]{images/Open-AI-Sora-White-Logo-PNG.png}\\[5pt]
+      \includegraphics[height=1.5cm]{images/Open-AI-Sora-White-Logo-PNG.png}\\[4pt]
       {\small \highlight{OpenAI Sora}}
     \end{minipage}
   \end{center}
@@ -443,25 +475,23 @@
 %──────────────────────────────────────────────────────────────────
 % THANK YOU SLIDE
 %──────────────────────────────────────────────────────────────────
-{
 \setbeamercolor{background canvas}{bg=DarkBlue}
 
 \section{Conclusion}
 
-\begin{frame}[plain]
+\begin{frame}
   \begin{tikzpicture}[remember picture,overlay]
     \foreach \r/\op in {6/0.04,4/0.07,2.2/0.11}{
       \fill[NeonPink,opacity=\op]
         (current page.center) circle (\r cm);
     }
   \end{tikzpicture}
-  \vspace{1.2cm}
+  % \vspace{1.2cm}
   \begin{center}
     {\Huge\bfseries\color{SoftWhite} Thank You!}\\[10pt]
-    {\large\color{LightGray} Questions?}
+    {\large\color{LightGray} Thanks for Listening!}
   \end{center}
 \end{frame}
-}
 
 %──────────────────────────────────────────────────────────────────
 % REFERENCES SLIDE
