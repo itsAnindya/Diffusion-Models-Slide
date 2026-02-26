@@ -11,7 +11,7 @@
 %  Theme
 %──────────────────────────────────────────────────────────────────
 \usetheme{metropolis}
-\metroset{sectionpage=none,subsectionpage=none}
+\metroset{progressbar=foot,sectionpage=none,subsectionpage=none}
 \usepackage{appendixnumberbeamer}
 
 %──────────────────────────────────────────────────────────────────
@@ -43,12 +43,17 @@
 \setbeamercolor{frametitle}         {bg=BgElevated,   fg=TextPrimary}
 \setbeamercolor{title separator}    {fg=AccentMain}
 \setbeamercolor{progress bar}       {fg=AccentMain,   bg=BgElevated}
+\setbeamercolor{progress bar in head/foot}{fg=AccentMain!80, bg=BgSurface}
 \setbeamercolor{block title}        {bg=AccentSoft,   fg=TextPrimary}
 \setbeamercolor{block body}         {bg=BgSurface,    fg=TextPrimary}
 \setbeamercolor{alerted text}       {fg=Highlight}
 \setbeamercolor{itemize item}       {fg=AccentMain}
 \setbeamercolor{itemize subitem}    {fg=TextMuted}
 \setbeamercolor{section in toc}     {fg=TextPrimary}
+
+\makeatletter
+\setlength{\metropolis@progressinheadfoot@linewidth}{2.2pt}
+\makeatother
 
 %──────────────────────────────────────────────────────────────────
 %  Packages
@@ -112,13 +117,13 @@
 {
 \setbeamercolor{background canvas}{bg=BgBase}
 
-\begin{frame}[plain]
+\begin{frame}
   \begin{tikzpicture}[remember picture,overlay]
-    \foreach \r/\op in {5/0.06,3.5/0.10,2/0.14}{
+    \foreach \r/\op in {5/0.30,3.5/0.40,2/0.60}{
       \fill[HighlightSoft,opacity=\op]
       (current page.north east) circle (\r cm);
       }
-      \foreach \r/\op in {4/0.06,2.5/0.10,1.2/0.14}{
+      \foreach \r/\op in {4/0.40,2.5/0.50,1.2/0.70}{
         \fill[AccentSoft,opacity=\op]
         (current page.south west) circle (\r cm);
         }
@@ -130,11 +135,11 @@
 
 \begin{frame}{Outline}
   \begin{tikzpicture}[remember picture, overlay]
-    \foreach \r/\op in {4.8/0.05,3.3/0.08,2.0/0.11}{
+    \foreach \r/\op in {4.8/0.20,3.3/0.30,2.0/0.50}{
       \fill[HighlightSoft,opacity=\op]
       ([xshift=0.8cm]current page.east) circle (\r cm);
     }
-    \foreach \r/\op in {3.8/0.04,2.4/0.07,1.3/0.10}{
+    \foreach \r/\op in {3.8/0.30,2.4/0.40,1.3/0.60}{
       \fill[AccentSoft,opacity=\op]
       ([xshift=0.8cm,yshift=-1.2cm]current page.north east) circle (\r cm);
     }
@@ -523,14 +528,14 @@
 
 \begin{frame}
   \begin{tikzpicture}[remember picture,overlay]
-    \foreach \r/\op in {6/0.05,4/0.09,2.2/0.13}{
+    \foreach \r/\op in {6/0.20,4/0.30,2.2/0.50}{
       \fill[AccentSoft,opacity=\op]
         (current page.center) circle (\r cm);
     }
   \end{tikzpicture}
   \begin{center}
     {\Huge\bfseries\color{TextPrimary} Thank You!}\\[10pt]
-    {\large\color{TextMuted} Thanks for Listening!}
+    {\large\color{TextMuted} Thanks for listening!}
   \end{center}
 \end{frame}
 
