@@ -20,3 +20,10 @@ diffusion_models_slide.aux
 diffusion_models_slide.aux
 .gitignore
 light_mode/diffusion_models_slide_light_mode.tex
+*.snm
+*.json
+*.toc
+*.bbl
+*.blg
+*.bcf
+*.xml
