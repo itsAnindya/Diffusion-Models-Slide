@@ -19,3 +19,4 @@ diffusion_models_slide.aux
 *.nav
 diffusion_models_slide.aux
 .gitignore
+light_mode/diffusion_models_slide_light_mode.tex

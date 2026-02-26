@@ -202,20 +202,22 @@
       reversearr/.style={bigarr, draw=Highlight},
       reverselabel/.style={font=\small, text=Highlight, align=center}]
 
+      \path[use as bounding box] (-1.2,-2.8) rectangle (11.2,1.6);
+
       %% Forward (destroy)
-      \node<1->[stage, fill=AccentSoft] (clean) at (0,0)
+      \node[visible on=<1->, stage, fill=AccentSoft] (clean) at (0,0)
         {\textbf{Clean Image}\\[6pt]\footnotesize contains\\all the detail};
-      \node<2->[stage, fill=BgElevated] (mid) at (5,0)
+      \node[visible on=<2->, stage, fill=BgElevated] (mid) at (5,0)
         {\textbf{Noisy Image}\\[6pt]\footnotesize some detail\\remains};
-      \draw<2->[forwardarr] (clean) -- (mid)
+      \draw[visible on=<2->, forwardarr] (clean) -- (mid)
         node[midway, above, forwardlabel]{add noise};
-      \node<3->[stage, fill=HighlightSoft] (noise) at (10,0)
+      \node[visible on=<3->, stage, fill=HighlightSoft] (noise) at (10,0)
         {\textbf{Pure Noise}\\[6pt]\footnotesize no information\\left};
-      \draw<3->[forwardarr] (mid) -- (noise)
+      \draw[visible on=<3->, forwardarr] (mid) -- (noise)
         node[midway, above, forwardlabel]{add noise};
       %% Reverse (learn)
-      \draw<4->[reversearr] (noise.south) -- ++(0,-0.5) -| (clean.south);
-      \node<4->[reverselabel] at (5,-2.1)
+      \draw[visible on=<4->, reversearr] (noise.south) -- ++(0,-0.5) -| (clean.south);
+      \node[visible on=<4->, reverselabel] at (5,-2.1)
         {Learn to reverse this process step by step};
 
     \end{tikzpicture}
