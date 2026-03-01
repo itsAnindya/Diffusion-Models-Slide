@@ -369,6 +369,87 @@
   \end{center}
 \end{frame}
 
+%══════════════════════════════════════════════════════════════════
+% SLIDE 5.1 — NEW: The U-Net Architecture
+%══════════════════════════════════════════════════════════════════
+\begin{frame}{The ``Brain'' of the Model: The U-Net}
+  \begin{center}
+    \begin{tikzpicture}[
+      box/.style={rounded corners=4pt, draw=AccentMain, fill=BgElevated, thick,
+                  minimum width=2.8cm, minimum height=1.5cm, align=center},
+      arrow/.style={-{Stealth[length=3mm]}, thick, TextMuted, line width=1.2pt}
+    ]
+      % Inputs
+      \node[align=center] (input) at (0,0) {
+        \framebox{\includegraphics[width=2cm,height=1.6cm]{images/noised_slightly.png}}\\[2pt]
+        \scriptsize Noisy Image ($x_t$)
+      };
+      
+      % Brain
+      \node[box] (unet) at (5,0) {\textbf{U-Net}\\\textbf{Architecture}\\[4pt]\scriptsize Predicts Noise ($\epsilon_\theta$)};
+      
+      % Outputs
+      \node[align=center] (output) at (10,0) {
+        \framebox{\includegraphics[width=2cm,height=1.6cm]{images/noised_fully.png}}\\[2pt]
+        \scriptsize Predicted Noise ($\hat{\epsilon}$)
+      };
+      
+      % Time step injection
+      \node[align=center, text=Highlight] (time) at (5, 2) {\textbf{Time step ($t$)}};
+
+      % Arrows
+      \draw[arrow] (input) -- (unet);
+      \draw[arrow] (unet) -- (output);
+      \draw[arrow, Highlight, dashed] (time) -- (unet) node[midway, right] {\scriptsize injected};
+    \end{tikzpicture}
+  \end{center}
+  
+  \pause
+  \vspace{10pt}
+  \begin{itemize}
+    \item \textbf{Input:} A noisy image and the specific time step ($t$).
+    \item \textbf{Process:} The U-Net shrinks the image to understand the "global context," then expands it back, using \highlight{skip connections} to retain fine, pixel-level details.
+    \item \textbf{Output:} An exact map of the noise predicted to have been added at step $t$.
+  \end{itemize}
+\end{frame}
+
+%══════════════════════════════════════════════════════════════════
+% SLIDE 6 — The Objective Function & Key Insight
+%══════════════════════════════════════════════════════════════════
+% \begin{frame}{The Objective Function \& Key Insight}
+  
+%   \begin{block}{The Simple Math Behind the Magic}
+%     We train the model ($\epsilon_\theta$) to minimize the Mean Squared Error (MSE) between the \textbf{true noise} ($\epsilon$) and the \textbf{predicted noise}:
+%     \vspace{-5pt}
+%     \begin{equation*}
+%       \mathcal{L} = \mathbb{E}_{t, x_0, \epsilon} \left[ \left\| \epsilon - \highlight{\epsilon_\theta(x_t, t)} \right\|^2 \right]
+%     \end{equation*}
+%   \end{block}
+%   \pause
+
+%   \vspace{10pt}
+%   \begin{columns}[T]
+%     \column{0.48\textwidth}
+%       \begin{block}{Why This is Elegant}
+%         \begin{itemize}
+%           \item We control the \highlight{noise process}, so the target is mathematically defined.
+%           \item Instead of predicting complex pixels directly, we predict simple noise. This turns generation into a precise \textbf{regression problem}.
+%         \end{itemize}
+%       \end{block}
+      
+%     \pause
+
+%     \column{0.48\textwidth}
+%       \begin{block}{Why It Works}
+%         \begin{itemize}
+%           \item The task is simplified into \textbf{small, predictable steps}.
+%           \item Each step only removes a tiny amount of noise.
+%           \item Repeating these simple steps reconstructs highly complex structures.
+%         \end{itemize}
+%       \end{block}
+%   \end{columns}
+% \end{frame}
+
 % \section{Insights}
 \begin{frame}{Key Insight \& Why It Works}
   \begin{columns}[T]
@@ -417,7 +498,7 @@
 
   \vspace{6pt}
   \begin{center}
-    \soft{In practice, diffusion models combine reliability with strong output quality.}
+    {In practice, diffusion models combine reliability with strong output quality.}
   \end{center}
 \end{frame}
 
@@ -496,6 +577,35 @@
 % SLIDE 8 — Limitations & Open Challenges
 %══════════════════════════════════════════════════════════════════
 % \section{Limitations \& Challenges}
+
+% \begin{frame}{Beyond Art: Science and Industry}
+%   \begin{columns}[T]
+%     \column{0.48\textwidth}
+%       \begin{block}{Healthcare & Biology}
+%         \begin{itemize}
+%           \item \important{Protein Design:} Generating novel molecular structures for drug discovery (e.g., RFdiffusion).
+%           \item \important{Medical Imaging:} Denoising and reconstructing high-resolution MRI and CT scans from sparse data.
+%         \end{itemize}
+%       \end{block}
+
+%     \pause
+
+%     \column{0.48\textwidth}
+%       \begin{block}{Digital Media & Spatial}
+%         \begin{itemize}
+%           \item \highlight{Audio Synthesis:} Generating high-fidelity music and realistic sound effects from text.
+%           \item \highlight{3D Generation:} Text-to-3D pipelines (e.g., DreamFusion) to accelerate game design and VR.
+%         \end{itemize}
+%       \end{block}
+%     \end{columns}
+%     \pause
+% %   \vspace{15pt}
+%   \begin{center}
+%     {Diffusion is evolving from generating 2D pixel arrays to modeling complex, real-world data.}
+%   \end{center}
+% \end{frame}
+
+%──────────────────────────────────────────────────────────────────
 \begin{frame}{Current Limitations}
         \begin{itemize}
           \item \textbf{Slow generation:} requires many denoising steps
@@ -518,8 +628,6 @@
                 \highlight{interactive content}?
         \end{itemize}
 \end{frame}
-
-%──────────────────────────────────────────────────────────────────
 % THANK YOU SLIDE
 %──────────────────────────────────────────────────────────────────
 \setbeamercolor{background canvas}{bg=BgBase}
