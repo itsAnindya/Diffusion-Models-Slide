@@ -11,7 +11,7 @@
 %  Theme
 %──────────────────────────────────────────────────────────────────
 \usetheme{metropolis}
-\metroset{progressbar=foot,sectionpage=none,subsectionpage=none}
+\metroset{progressbar=foot,subsectionpage=none}
 \usepackage{appendixnumberbeamer}
 
 %──────────────────────────────────────────────────────────────────
@@ -191,7 +191,7 @@
 %══════════════════════════════════════════════════════════════════
 % SLIDE 2 — The Core Idea: Learning by Destroying
 %══════════════════════════════════════════════════════════════════
-\section{Core Idea}
+% \section{Core Idea}
 
 \begin{frame}{The Core Idea: Learning by Destroying}
 
@@ -242,7 +242,7 @@
 %══════════════════════════════════════════════════════════════════
 % SLIDE 3 — The Forward Process: Adding Noise
 %══════════════════════════════════════════════════════════════════
-\section{Forward Diffusion Process}
+% \section{Forward Diffusion Process}
 \begin{frame}{The Forward Diffusion Process: Adding Noise}
 
   \vspace{10pt}
@@ -285,7 +285,7 @@
 %══════════════════════════════════════════════════════════════════
 % SLIDE 4 — The Reverse Process: Removing Noise
 %══════════════════════════════════════════════════════════════════
-\section{Reverse Diffusion Process}
+% \section{Reverse Diffusion Process}
 \begin{frame}{The Reverse Diffusion Process: Removing Noise}
 
   \vspace{10pt}
@@ -328,7 +328,6 @@
   \end{block}
 \end{frame}
 
-\section{Training}
 \begin{frame}{Training}
   \begin{center}
     {\Large To produce realistic images, the model must \textbf{learn} to \important{reverse} the noise process.}\\[20pt]
@@ -338,6 +337,7 @@
 \end{frame}
 
 %══════════════════════════════════════════════════════════════════
+\section{Training}
 % SLIDE 5 — How Do We Train It?
 %══════════════════════════════════════════════════════════════════
 \begin{frame}{How Do We Train It?}
@@ -352,15 +352,15 @@
                    fill=BgElevated, text=TextPrimary,
                    minimum width=12.8cm, minimum height=1.0cm,
                    font=\large, inner sep=10pt, align=left},
-      arr/.style={->, TextMuted, line width=1.2pt}]
-
+                   arr/.style={->, TextMuted, line width=1.2pt}]
+                   
       \node<1->[trainstep] (s1) at (0,0)
         {1.\; Take a real image from the training set};
       \node<2->[trainstep, below=14pt of s1] (s2)
         {2.\; Pick a random step and add the corresponding noise};
       \draw<2->[arr] (s1.south) -- (s2.north);
       \node<3->[trainstep, below=14pt of s2] (s3)
-        {3.\; Ask the neural network: \textit{``what noise was added?''}};
+      {3.\; Ask the neural network: \textit{``what noise was added?''}};
       \draw<3->[arr] (s2.south) -- (s3.north);
       \node<4->[finalstep, below=14pt of s3] (s4)
         {4.\; Compare the prediction to the \textbf{actual noise}, minimize the error};
@@ -369,7 +369,7 @@
   \end{center}
 \end{frame}
 
-\section{Insights}
+% \section{Insights}
 \begin{frame}{Key Insight \& Why It Works}
   \begin{columns}[T]
     \column{0.48\textwidth}
@@ -432,8 +432,8 @@
 
 %══════════════════════════════════════════════════════════════════
 % SLIDE 7 — Applications
-%══════════════════════════════════════════════════════════════════
 \section{Applications}
+%══════════════════════════════════════════════════════════════════
 \begin{frame}{Applications}
   \vspace{6pt}
   \begin{center}
@@ -472,7 +472,7 @@
       \centering
       \includegraphics[height=1.0cm]{images/Dall-E-Logo-PNG.png}\\[1pt]
       \vspace{5pt}
-      {\small \highlight{DALL·E}}
+      {\small \highlight{Text to Image (DALL·E)}}
     \end{minipage}
     \pause
     \vspace{20pt}
@@ -480,14 +480,14 @@
     \begin{minipage}{0.36\textwidth}
       \centering
       \includegraphics[height=2cm]{images/Midjourney_Emblem_(in-colour).svg.png}\\
-      {\small \highlight{Midjourney}}
+      {\small \highlight{Artistic Image Synthesis (Midjourney)}}
     \end{minipage}
     \pause
     \hspace{0.08\textwidth}
     \begin{minipage}{0.36\textwidth}
       \centering
       \includegraphics[height=2cm]{images/OpenAI_Sora_icon.png}\\
-      {\small \highlight{OpenAI Sora}}
+      {\small \highlight{Text to Video (Sora)}}
     \end{minipage}
   \end{center}
 \end{frame}
@@ -495,7 +495,7 @@
 %══════════════════════════════════════════════════════════════════
 % SLIDE 8 — Limitations & Open Challenges
 %══════════════════════════════════════════════════════════════════
-\section{Limitations \& Challenges}
+% \section{Limitations \& Challenges}
 \begin{frame}{Current Limitations}
         \begin{itemize}
           \item \textbf{Slow generation:} requires many denoising steps
@@ -524,7 +524,7 @@
 %──────────────────────────────────────────────────────────────────
 \setbeamercolor{background canvas}{bg=BgBase}
 
-\section{Conclusion}
+% \section{Conclusion}
 
 %──────────────────────────────────────────────────────────────────
 % REFERENCES SLIDE
