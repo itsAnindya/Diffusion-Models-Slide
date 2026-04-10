@@ -40,3 +40,8 @@ Report/polish_check-01.png
 Report/polish_check-2.png
 Report/diffusion_models_report.lof
 Report/diffusion_models_report.lot
+Report/diffusion_models_report.lof
+*.lof
+*.lot
+Report/diffusion_models_report.lot
+*.lof

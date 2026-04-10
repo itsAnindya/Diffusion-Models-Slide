@@ -50,7 +50,7 @@
 \newcommand{\E}{\mathbb{E}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\alphabar}{\bar{\alpha}}
-\newcommand{\reporttitle}{DIFFUSION MODELS}
+\newcommand{\reporttitle}{Diffusion Models}
 
 \begin{document}
 
@@ -65,30 +65,25 @@
 \centering
 \vspace*{0.9cm}
 \includegraphics[width=2.8cm]{buet_logo.pdf}\\[0.55cm]
-{\Large\textbf{BANGLADESH UNIVERSITY OF ENGINEERING AND TECHNOLOGY}}\\[0.2cm]
-{\large DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING}\\[0.2cm]
-{\large \textbf{CSE200: Technical Writing and Presentation}}\\[1.3cm]
+{\Large\textbf{Bangladesh University of Engineering and Technology}}\\[0.2cm]
+{\large Department of Computer Science and Engineering}\\[0.2cm]
+{\large \textbf{CSE 200: Technical Writing and Presentation}}\\[1.3cm]
 \rule{0.85\linewidth}{0.8pt}\\[0.8cm]
 {\Huge\bfseries\color{AccentMain}\reporttitle}\\[0.3cm]
-{\Large A Technical Overview of Progressive Denoising for Image Generation}\\[0.5cm]
+{\Large An Overview of Progressive Denoising for Image Generation}\\[0.5cm]
 \rule{0.85\linewidth}{0.8pt}\\[0.8cm]
-
-\begin{minipage}{0.82\linewidth}
-\centering
-\textbf{This report presents a concise technical overview of diffusion models, emphasizing how progressive denoising enables high-fidelity and diverse image synthesis.}
-\end{minipage}
-
+\vspace{0.2cm}
 \vfill
 
 \begin{tabular}{>{\bfseries}p{4.0cm}p{8.3cm}}
     Subsection: & B2 \\
     Group: & 08 \\
     \addlinespace
-    Submitted by: & Anindya Biswas \dotfill Student ID: 2205107 \\
+    Prepared by: & Anindya Biswas \dotfill Student ID: 2205107 \\
              & Tasnim Tamal \dotfill Student ID: 2205110 \\
              & Din Mohammad \dotfill Student ID: 2205113 \\
     \addlinespace
-    Submission date: & \today \\
+    Date: & \today \\
 \end{tabular}
 
 \vfill
@@ -104,12 +99,12 @@
 
 \section*{Abstract}
 \addcontentsline{toc}{section}{Abstract}
-Diffusion models are generative models that learn to reverse a gradual noising process. Instead of creating an image in one step, they start from random noise and refine it through repeated denoising until meaningful structure appears. In this report, we summarize the main ideas behind Denoising Diffusion Probabilistic Models (DDPMs) \cite{ho2020ddpm,nichol2021improved}. We cover the forward and reverse processes, the role of the U-Net backbone with timestep conditioning, and the standard noise-prediction objective used during training. We also discuss why diffusion models are now widely used in generative modeling, especially because training is comparatively stable and output quality is strong \cite{song2019generative,rombach2022latent}. Finally, we highlight practical and ethical concerns, including slow sampling, high computational cost, and responsible deployment.
+Diffusion models have become an important class of generative models because they can produce high-quality images without relying on adversarial training. Their basic idea is to gradually corrupt data with Gaussian noise and then learn how to reverse that process. This report explains the forward and reverse diffusion processes, the role of the U-Net architecture, and the standard noise-prediction objective used in Denoising Diffusion Probabilistic Models (DDPMs) \cite{ho2020ddpm,nichol2021improved}. It also briefly discusses faster sampling methods, latent diffusion, common evaluation metrics, and several well-known applications \cite{song2020ddim,rombach2022latent}. Finally, the report points out practical limitations such as slow sampling and high computational cost, along with broader concerns related to responsible use.
 
 \section{Introduction}
-Generative modeling studies how to learn a probability distribution from observed data so that new samples can be drawn from it. For images, this means generating outputs that look realistic at both local and global levels, not only matching texture but also preserving object structure and consistency. Among current approaches, diffusion methods have drawn a lot of attention because they combine a clear probabilistic foundation with strong empirical results \cite{ho2020ddpm,song2020ddim}.
+Generative modeling is concerned with learning the underlying distribution of data so that new samples can be produced from it. For images, this is difficult because realistic output must preserve both fine texture and overall structure. Diffusion models are especially interesting in this setting because the core idea is simple, yet the results are strong in practice \cite{ho2020ddpm,song2020ddim}. This line of work is also closely related to score-based generative modeling, where noisy samples are used to learn an iterative refinement process \cite{song2019generative}.
 
-Figure~\ref{fig:motivation-real-vs-ai} illustrates this motivation. The generated face on the right appears plausible even though it does not correspond to a real person. A useful generative model must therefore do more than memorize training examples; it must capture the statistical regularities of the data well enough to synthesize new samples.
+Figure~\ref{fig:motivation-real-vs-ai} shows why this topic matters. The generated face on the right looks plausible even though it does not belong to a real person. A useful generative model must therefore do more than memorize training examples; it must learn enough about the data distribution to create new samples that still look realistic.
 
 \begin{figure}[H]
     \centering
@@ -124,11 +119,11 @@ Figure~\ref{fig:motivation-real-vs-ai} illustrates this motivation. The generate
         \includegraphics[width=\linewidth]{ai_face.png}
         \caption{A model-generated face sample.}
     \end{subfigure}
-    \caption[Real and generated image comparison]{Illustrative comparison between a real image and a generated image. A successful generative model should produce outputs that remain visually consistent with the underlying data distribution.}
+    \caption[Real and generated image comparison]{Example of a real image and a model-generated image. Good generative models aim to produce new samples that remain visually consistent with real data.}
     \label{fig:motivation-real-vs-ai}
 \end{figure}
 
-The central idea of diffusion modeling is to break generation into many small denoising steps. During training, real data are gradually perturbed with Gaussian noise. Since this corruption process is predefined, the model can be trained to predict the added noise at different timesteps. During sampling, the process is reversed: the model starts from random noise and gradually reconstructs structure. In our understanding, this step-by-step setup makes learning more manageable than trying to predict a full image in one shot.
+What makes diffusion models intuitive is that they do not try to generate the final image in a single step. During training, a real image is gradually corrupted with Gaussian noise, and the model learns to predict the noise added at different stages. During sampling, the process is reversed: the model starts from random noise and gradually reconstructs structure. This stepwise formulation makes the learning problem easier to handle than direct one-shot image generation.
 
 \section{The Diffusion Process}
 The workflow of a diffusion model has two complementary parts: a \textit{forward diffusion process} that destroys information and a \textit{reverse diffusion process} that reconstructs structure. Figure~\ref{fig:diffusion-overview} summarizes this idea in one diagram.
@@ -223,7 +218,7 @@ Once the data has been corrupted, the generative task becomes the reverse proble
 In practice, many implementations train a neural network to predict the added noise rather than predict clean pixels directly. This reparameterization simplifies learning because the network only needs to estimate the perturbation that separates $\vect{x}_t$ from the underlying clean sample \cite{ho2020ddpm,nichol2021improved}.
 
 \section{Model Architecture and Training}
-In practice, strong performance depends not only on the probabilistic formulation, but also on the neural architecture used to model the reverse process. Most image diffusion systems employ a U-Net-style backbone with multi-scale feature extraction and skip connections \cite{ronneberger2015unet}. The network receives two inputs: a noisy image $\vect{x}_t$ and an embedding of the timestep $t$.
+Besides the probabilistic formulation, the choice of network architecture also matters. Most image diffusion systems use a U-Net-style backbone with multi-scale feature extraction and skip connections \cite{ronneberger2015unet}. The network takes two main inputs: a noisy image $\vect{x}_t$ and an embedding of the timestep $t$.
 
 \begin{figure}[H]
     \centering
@@ -298,7 +293,7 @@ The standard DDPM training objective is
     \label{eq:noise-objective}
 \end{equation}
 
-This loss is convenient because the target noise $\vect{\epsilon}$ is known exactly; it is sampled by the training procedure itself. As a result, supervision is explicit and comparatively stable. Instead of learning to generate a final image in one pass, the network solves many smaller denoising tasks.
+This objective is convenient because the target noise $\vect{\epsilon}$ is known exactly; it is produced by the training procedure itself. That gives the model a clear supervision signal. In effect, the network is trained to solve many smaller denoising problems instead of one difficult image-generation problem.
 
 \subsection{Training Workflow}
 The complete training routine can be summarized as Algorithm~\ref{alg:diffusion-training}. The procedure alternates between sampling a real image, corrupting it to a randomly chosen timestep, and updating the network so that its predicted noise matches the actual perturbation.
@@ -321,7 +316,7 @@ The complete training routine can be summarized as Algorithm~\ref{alg:diffusion-
 \end{algorithm}
 
 \subsection{Sampling and Guidance in Practice}
-At inference time, generation starts from $\vect{x}_T \sim \mathcal{N}(\vect{0},\vect{I})$ and applies the learned reverse transitions repeatedly until $\vect{x}_0$ is obtained. A practical challenge is that this process can require many steps. Two common improvements are: (i) deterministic or reduced-step samplers such as DDIM, which decrease latency while preserving useful quality \cite{song2020ddim}; and (ii) guidance strategies that strengthen condition alignment, such as classifier guidance and classifier-free guidance \cite{dhariwal2021diffusion,ho2022classifierfree}. These techniques are central to modern text-to-image systems because they improve controllability and sample fidelity.
+At inference time, generation starts from $\vect{x}_T \sim \mathcal{N}(\vect{0},\vect{I})$ and repeatedly applies the learned reverse transitions until $\vect{x}_0$ is obtained. In practice, the main drawback is that this reverse process can be slow. One common way to reduce the number of steps is DDIM sampling \cite{song2020ddim}. Another practical idea is guidance, which pushes the model to follow a condition more strongly. Examples include classifier guidance and classifier-free guidance \cite{dhariwal2021diffusion,ho2022classifierfree}. These methods are especially important in modern text-to-image systems because they improve control over the final result.
 
 Table~\ref{tab:notation} collects the most important symbols used in the mathematical discussion so that the notation remains easy to follow.
 
@@ -345,7 +340,7 @@ Table~\ref{tab:notation} collects the most important symbols used in the mathema
 \end{table}
 
 \section{Why Diffusion Models Perform Well}
-Diffusion models often perform strongly in practice for several related reasons. First, once Gaussian noise is sampled, the training target is known analytically, which avoids the adversarial optimization instability often seen in GAN training. Second, iterative denoising lets coarse structure emerge before fine details are refined. Third, conditioning inputs such as text, class labels, or masks can be integrated naturally into the denoising network, making the framework useful across many tasks.
+There are several practical reasons diffusion models perform well. First, once Gaussian noise is sampled, the training target is known analytically, which avoids the adversarial instability often seen in GAN training. Second, iterative denoising lets coarse structure appear before fine details are refined. Third, conditioning inputs such as text, class labels, or masks can be integrated naturally into the denoising network, which makes the framework useful across many tasks.
 
 These characteristics help explain why diffusion systems became competitive with, and in many settings preferable to, earlier generative approaches. Table~\ref{tab:model-comparison} summarizes typical trade-offs.
 
@@ -372,12 +367,137 @@ These characteristics help explain why diffusion systems became competitive with
 \end{table}
 
 \section{How Performance is Evaluated}
-In research papers, claims about image quality are usually supported by quantitative metrics in addition to visual examples. A widely used metric is the Fr\'{e}chet Inception Distance (FID), which compares feature statistics of generated and real images; lower values are generally better \cite{heusel2017fid}. Many papers also report Inception Score (IS) and precision-recall style analyses to separate fidelity from diversity.
+When papers claim better image quality, they usually support those claims with both visual examples and numerical metrics. One of the most common metrics is the Fr\'{e}chet Inception Distance (FID), which compares feature statistics of generated and real images; lower values are generally better \cite{heusel2017fid}. Many papers also report Inception Score (IS) and precision-recall style analyses to separate fidelity from diversity.
 
-For conditional systems such as text-to-image models, alignment quality is also important: the output should follow the prompt while remaining realistic. In practice, this creates a trade-off between strict condition matching and natural-looking images, so most studies report multiple metrics rather than relying on only one.
+For conditional systems such as text-to-image models, image quality alone is not enough. The output should also follow the prompt while remaining realistic. In practice, this creates a trade-off between strict condition matching and natural-looking images, so most studies report multiple metrics rather than relying on only one.
+
+\section{Important Practical Variants}
+The basic DDPM formulation is enough to understand the core idea, but many real systems use modified samplers or compressed representations to make the method more practical. Two widely discussed examples are DDIM sampling \cite{song2020ddim} and latent diffusion \cite{rombach2022latent}. These variants do not change the main idea of progressive denoising; instead, they make the framework more usable in real settings.
+
+\subsection{Noise Schedule and Sampling Intuition}
+Although the forward process is defined mathematically, it is helpful to think of diffusion in terms of how signal gradually gives way to noise. Early timesteps preserve most of the original structure, while later timesteps are dominated by noise. This transition is controlled by the schedule $\{\beta_t\}$ and the cumulative factor $\alphabar_t$.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        x=9.1cm,
+        y=4.7cm,
+        font=\small
+    ]
+        \draw[-{Stealth[length=3mm]}, line width=1.0pt, draw=TextMuted] (0,0) -- (1.05,0)
+            node[right, align=left] {normalized\\timestep $t/T$};
+        \draw[-{Stealth[length=3mm]}, line width=1.0pt, draw=TextMuted] (0,0) -- (0,1.05)
+            node[above, align=center] {relative\\contribution};
+
+        \draw[AccentMain, line width=1.7pt]
+            (0,0.92)
+            .. controls (0.20,0.89) and (0.42,0.73) .. (0.58,0.52)
+            .. controls (0.76,0.29) and (0.90,0.14) .. (1.00,0.08);
+
+        \draw[Highlight, dashed, line width=1.7pt]
+            (0,0.08)
+            .. controls (0.18,0.12) and (0.40,0.27) .. (0.58,0.52)
+            .. controls (0.77,0.76) and (0.91,0.90) .. (1.00,0.96);
+
+        \draw[densely dotted, draw=TextMuted!55] (0.58,0) -- (0.58,0.64);
+
+        \node[text=AccentMain, fill=white, inner sep=1.5pt] at (0.21,0.86)
+            {\scriptsize signal term $\sqrt{\alphabar_t}$};
+        \node[text=Highlight, fill=white, inner sep=1.5pt] at (0.82,0.83)
+            {\scriptsize noise term $\sqrt{1-\alphabar_t}$};
+        \node[text=TextMuted, align=center] at (1.0,0.5)
+            {\scriptsize gradual shift from mostly structured input\\\scriptsize to mostly noise-dominated input};
+        \node[text=TextMuted, below] at (0.12,0) {\scriptsize early};
+        \node[text=TextMuted, below] at (0.89,0) {\scriptsize late};
+    \end{tikzpicture}
+    \caption[Conceptual signal-noise balance over time]{Conceptual signal-noise balance over diffusion timesteps. The plot is schematic and illustrates how the contribution of the original signal decreases while the contribution of noise increases.}
+    \label{fig:signal-noise-balance}
+\end{figure}
+
+Figure~\ref{fig:signal-noise-balance} is only a conceptual sketch, but it helps explain why sampling can be expensive: the model has to undo a long sequence of small changes. DDIM-style samplers address this issue by following a more direct denoising path, often producing useful samples with fewer steps than a standard DDPM sampler \cite{song2020ddim}.
+
+\subsection{Latent Diffusion}
+Working directly in pixel space is expensive, especially for high-resolution images. Latent diffusion reduces this cost by encoding an image into a lower-dimensional latent representation, running diffusion in that space, and then decoding the result back into pixel space \cite{rombach2022latent}. Because the denoising network operates on a compressed representation, both memory use and sampling cost can be reduced substantially.
+
+\begin{figure}[H]
+    \centering
+    \resizebox{0.96\linewidth}{!}{%
+    \begin{tikzpicture}[
+        font=\small,
+        box/.style={
+            rounded corners=6pt,
+            draw=AccentMain!70,
+            fill=BgElevated,
+            thick,
+            text width=2.15cm,
+            minimum height=1.35cm,
+            align=center,
+            inner sep=4pt
+        },
+        softbox/.style={
+            rounded corners=6pt,
+            draw=TextMuted!45,
+            fill=BgSurface,
+            text width=1.95cm,
+            minimum height=1.15cm,
+            align=center,
+            inner sep=4pt
+        },
+        highlightbox/.style={
+            rounded corners=6pt,
+            draw=Highlight!70,
+            fill=HighlightSoft,
+            thick,
+            text width=2.7cm,
+            minimum height=1.45cm,
+            align=center,
+            inner sep=4pt
+        },
+        arrow/.style={-{Stealth[length=3mm]}, line width=1.2pt, draw=TextMuted}
+    ]
+        \node[softbox] (imgin) at (0,0) {\textbf{Input image}\\pixel space};
+        \node[box] (enc) at (2.9,0) {\textbf{Encoder}};
+        \node[softbox] (latent) at (5.9,0) {\textbf{Latent code}\\$\vect{z}$};
+        \node[highlightbox] (ldm) at (9.5,0) {\textbf{Diffusion model}\\denoise in latent space};
+        \node[box] (dec) at (13.2,0) {\textbf{Decoder}};
+        \node[softbox] (imgout) at (16.0,0) {\textbf{Output image}\\pixel space};
+
+        \draw[arrow] (imgin) -- (enc);
+        \draw[arrow] (enc) -- (latent);
+        \draw[arrow] (latent) -- (ldm);
+        \draw[arrow] (ldm) -- (dec);
+        \draw[arrow] (dec) -- (imgout);
+
+        \node[text=TextMuted, align=center] at (9.5,1.8)
+            {\scriptsize lower-dimensional representation\\\scriptsize reduces memory use and sampling cost};
+    \end{tikzpicture}%
+    }
+    \caption[Latent diffusion pipeline]{Simplified view of latent diffusion. Instead of applying diffusion directly in pixel space, the model denoises a compressed latent representation and then decodes the result back into an image.}
+    \label{fig:latent-diffusion}
+\end{figure}
+
+This is one reason modern text-to-image systems can work at fairly high resolutions. The denoising process is still learned in the same way, but the computation is carried out in a more compact space. Table~\ref{tab:practical-variants} summarizes the practical motivation behind several common variants.
+
+\begin{table}[H]
+    \centering
+    \rowcolors{2}{BgBase}{white}
+    {\small
+    \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash\bfseries}p{2.1cm}>{\raggedright\arraybackslash}p{3.1cm}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}X}
+        \toprule
+        Variant & Main idea & Practical benefit & Typical trade-off \\
+        \midrule
+        DDPM & Learn the reverse diffusion chain in pixel space. & Strong baseline formulation and high sample quality. & Often requires many denoising steps. \\
+        DDIM & Use an implicit sampling path that can skip some steps. & Faster generation with fewer sampling steps. & Speed and quality depend on the chosen schedule. \\
+        Latent diffusion & Apply diffusion to a compressed latent representation. & Lower memory cost and more practical high-resolution synthesis. & Requires an additional encoder-decoder stage. \\
+        \bottomrule
+    \end{tabularx}
+    }
+    \caption[Selected practical variants of diffusion models]{Selected practical variants built on the basic diffusion framework.}
+    \label{tab:practical-variants}
+\end{table}
 
 \section{Applications}
-Diffusion models now appear in both public-facing creative tools and specialized technical workflows. In consumer applications, they are used for text-to-image synthesis, image editing, artistic rendering, and increasingly for video generation. Figure~\ref{fig:application-logos} shows a few widely recognized systems associated with this broader family of methods.
+Diffusion models are no longer only a research topic. They now appear both in popular creative tools and in more specialized technical workflows. In everyday applications, they are used for text-to-image synthesis, image editing, artistic rendering, and increasingly for video generation. Figure~\ref{fig:application-logos} shows a few familiar systems associated with this broader family of methods.
 
 \begin{figure}[H]
     \centering
@@ -402,17 +522,17 @@ Diffusion models now appear in both public-facing creative tools and specialized
     \label{fig:application-logos}
 \end{figure}
 
-Beyond creative media, diffusion models are increasingly relevant in technical domains. In medical imaging, researchers use them for denoising, reconstruction, and data augmentation. In scientific design, related models are being explored for molecule generation and inverse problems. Latent diffusion models further reduce the cost of high-resolution synthesis by performing denoising in a compressed latent space rather than directly in pixel space \cite{rombach2022latent}.
+Beyond creative media, diffusion models are also becoming relevant in technical domains. In medical imaging, researchers use them for denoising, reconstruction, and data augmentation. In scientific design, related models are being explored for molecule generation and inverse problems. Latent diffusion models further reduce the cost of high-resolution synthesis by performing denoising in a compressed latent space rather than directly in pixel space \cite{rombach2022latent}.
 
 \section{Limitations and Responsible Use}
-Despite their strengths, diffusion models still have important limitations. The first is \textbf{slow sampling}: high-quality generation may require dozens to hundreds of denoising steps, which increases latency. The second is \textbf{high computational cost}: training large systems demands substantial GPU memory, long training times, and significant electrical power. The third is \textbf{system complexity}: practical deployments often rely on careful prompt conditioning, safety filters, and post-processing pipelines.
+Despite their strengths, diffusion models still have several important limitations. The first is \textbf{slow sampling}: high-quality generation may require dozens to hundreds of denoising steps, which increases latency. The second is \textbf{high computational cost}: training large systems demands substantial GPU memory, long training times, and significant electrical power. The third is \textbf{system complexity}: practical deployments often rely on careful prompt conditioning, safety filters, and post-processing pipelines.
 
-There are also broader ethical concerns. Diffusion models can reproduce harmful biases present in their training data, imitate artistic styles without consent, or be used to create misleading synthetic media. For this reason, technical progress should be considered alongside dataset transparency, usage policies, and clear attribution practices.
+There are also broader ethical concerns. Diffusion models can reproduce harmful biases present in their training data, imitate artistic styles without consent, or be used to create misleading synthetic media. For that reason, technical progress should be considered alongside dataset transparency, usage policies, and clear attribution practices.
 
 \section{Conclusion}
-Diffusion models have become one of the most practical and effective frameworks in modern generative modeling. By learning to reverse a controlled corruption process, they combine probabilistic ideas with neural network-based denoising in a way that is both mathematically grounded and useful in practice. This helps explain their strong performance in image generation and related tasks.
+Overall, diffusion models show how a difficult generation problem can be broken into a sequence of smaller denoising steps. That is what makes the framework both interesting to study and useful in practice. It brings together probability, optimization, neural networks, and real image-generation systems in a way that is easier to follow than many earlier generative approaches.
 
-At the same time, understanding diffusion models is easier when the topic is presented step by step: forward process, reverse process, architecture, training objective, applications, and limitations. Framing the report this way shows both how these models generate realistic samples and where their current limitations still remain.
+At the same time, the method is not free of cost: sampling is slow, training is expensive, and responsible use matters. Even with these limitations, diffusion models remain one of the most influential ideas in modern generative AI.
 
 \newpage
 \bibliographystyle{ieeetr}
