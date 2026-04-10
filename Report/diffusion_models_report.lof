@@ -1,5 +1,5 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces A motivating comparison between real data and synthetic data. Diffusion models aim to generate samples that are visually consistent with the underlying real-data distribution.}}{2}{figure.caption.5}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Conceptual overview of diffusion models. Training uses the controlled noising path, while sampling uses the learned reverse path.}}{2}{figure.caption.6}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Visual interpretation of the forward diffusion process. A structured image is gradually transformed into an approximately Gaussian sample.}}{3}{figure.caption.7}%
-\contentsline {figure}{\numberline {4}{\ignorespaces A simplified training view of an image diffusion model. The network receives a noisy image and the current timestep, predicts the noise component, and is trained with a mean-squared error objective.}}{4}{figure.caption.8}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Examples of modern creative tools associated with diffusion-based generation. These examples are illustrative rather than exhaustive.}}{6}{figure.caption.11}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Real and generated image comparison}}{1}{figure.caption.5}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Diffusion model overview}}{2}{figure.caption.6}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Progressive noising example}}{3}{figure.caption.7}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Simplified diffusion training diagram}}{4}{figure.caption.8}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Representative diffusion-based applications}}{6}{figure.caption.11}%
