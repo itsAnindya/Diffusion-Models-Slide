@@ -68,14 +68,19 @@
 {\Large\textbf{BANGLADESH UNIVERSITY OF ENGINEERING AND TECHNOLOGY}}\\[0.2cm]
 {\large DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING}\\[0.2cm]
 {\large \textbf{CSE200: Technical Writing and Presentation}}\\[1.3cm]
-
+\rule{0.85\linewidth}{0.8pt}\\[0.8cm]
 {\Huge\bfseries\color{AccentMain}\reporttitle}\\[0.3cm]
 {\Large A Technical Overview of Progressive Denoising for Image Generation}\\[0.5cm]
 \rule{0.85\linewidth}{0.8pt}\\[0.8cm]
 
 \begin{minipage}{0.82\linewidth}
 \centering
-\textbf{Expanded from the accompanying presentation into a formal technical report.}
+% \textbf{Expanded from the accompanying presentation into a formal technical report.}
+% Write something about the subject rather than the format or how it is produced.
+% Write something about the diffusion model topic itself, such as its significance, motivation, or key insights.
+%\textbf{This report provides a concise technical overview of diffusion models, a powerful class of generative models that have transformed image synthesis. By learning to reverse a gradual noising process, diffusion models can generate high-quality samples with strong diversity and stability. The report covers the core mechanisms of forward and reverse diffusion, the architecture of the neural network used for denoising, the training objective, and the reasons behind their strong performance. It also discusses practical applications and ethical considerations, highlighting both the strengths and limitations of this influential approach in modern machine learning.}
+% Write a one-line summary of the line above.
+\textbf{This report provides a concise technical overview of diffusion models, a powerful class of generative models that have transformed image synthesis.}
 \end{minipage}
 
 \vfill
@@ -130,7 +135,7 @@ Figure~\ref{fig:motivation-real-vs-ai} illustrates this motivation. The generate
 
 The central idea of diffusion modeling is to decompose generation into many small denoising steps. During training, real data are gradually perturbed with Gaussian noise. Because the corruption process is known in advance, the model can be trained to predict the added noise at arbitrary timesteps. During sampling, the learned process is applied in reverse: the model starts from random noise and progressively recovers structure. This formulation turns image generation into a sequence of manageable estimation problems rather than a single difficult prediction.
 
-\section{Core Diffusion Mechanism}
+\section{The Diffusion Process}
 The workflow of a diffusion model has two complementary parts: a \textit{forward diffusion process} that destroys information and a \textit{reverse diffusion process} that reconstructs structure. Figure~\ref{fig:diffusion-overview} summarizes this idea in one diagram.
 
 \begin{figure}[H]
@@ -149,13 +154,13 @@ The workflow of a diffusion model has two complementary parts: a \textit{forward
         rarr/.style={-{Stealth[length=3mm]}, line width=1.5pt, draw=Highlight}
     ]
         \node[stage, fill=AccentSoft] (x0) at (0,0) {\textbf{Clean sample}\\$\vect{x}_0$};
-        \node[stage, fill=BgElevated] (xt) at (4.9,0) {\textbf{Partially noised}\\$\vect{x}_t$};
-        \node[stage, fill=HighlightSoft] (xT) at (9.8,0) {\textbf{Pure noise}\\$\vect{x}_T$};
+        \node[stage, fill=BgElevated] (xt) at (6,0) {\textbf{Partially noised}\\$\vect{x}_t$};
+        \node[stage, fill=HighlightSoft] (xT) at (12,0) {\textbf{Pure noise}\\$\vect{x}_T$};
 
         \draw[farr] (x0) -- (xt)
-            node[midway, above, fill=white, inner sep=1.5pt] {\scriptsize add Gaussian noise};
+            node[midway, above, inner sep=5pt] {\scriptsize add Gaussian noise};
         \draw[farr] (xt) -- (xT)
-            node[midway, above, fill=white, inner sep=1.5pt] {\scriptsize repeat};
+            node[midway, above, inner sep=5pt] {\scriptsize repeat};
 
         \coordinate (revmid) at ($(xt.south)+(0,-1.25)$);
         \draw[rarr] (xT.south) |- (revmid) -| (x0.south);
@@ -166,7 +171,7 @@ The workflow of a diffusion model has two complementary parts: a \textit{forward
     \label{fig:diffusion-overview}
 \end{figure}
 
-\subsection{Forward Diffusion}
+\subsection{Forward Diffusion Process}
 The forward process is a Markov chain that progressively perturbs a clean sample $\vect{x}_0 \in \R^d$ with Gaussian noise. At each timestep $t$, a small variance term $\beta_t$ determines how much corruption is introduced:
 \begin{equation}
     q(\vect{x}_t \mid \vect{x}_{t-1}) =
@@ -212,7 +217,7 @@ Equation~\ref{eq:closed-form-forward} is convenient during training because it a
     \label{fig:progressive-noising}
 \end{figure}
 
-\subsection{Reverse Diffusion}
+\subsection{Reverse Diffusion Process}
 Once the data has been corrupted, the generative task becomes the reverse problem: infer how to move from $\vect{x}_t$ back to a less noisy sample $\vect{x}_{t-1}$. The model parameterized by $\theta$ learns a reverse distribution of the form
 \begin{equation}
     p_{\theta}(\vect{x}_{t-1} \mid \vect{x}_t) =
@@ -256,10 +261,10 @@ In practice, strong performance depends not only on the probabilistic formulatio
         \node[box] (enc) at (3.1,0) {\textbf{Encoder}\\\scriptsize feature extraction};
         \node[box] (bottleneck) at (6.2,0) {\textbf{Bottleneck}\\\scriptsize latent features};
         \node[box] (dec) at (9.3,0) {\textbf{Decoder}\\\scriptsize detail recovery};
-        \node[softbox] (epshat) at (12.0,0) {\textbf{Predicted noise}\\$\hat{\vect{\epsilon}}_{\theta}$};
+        \node[softbox] (epshat) at (12.4,0) {\textbf{Predicted noise}\\$\hat{\vect{\epsilon}}_{\theta}$};
 
         \node[softbox, text width=2.15cm] (time) at (6.2,2.15) {\textbf{Timestep}\\embedding $t$};
-        \node[softbox, text width=2.7cm] (loss) at (11.4,-2.15) {\textbf{MSE loss}\\$\|\vect{\epsilon}-\hat{\vect{\epsilon}}_{\theta}\|_2^2$};
+        \node[softbox, text width=2.7cm] (loss) at (11.0,-2.15) {\textbf{MSE loss}\\$\|\vect{\epsilon}-\hat{\vect{\epsilon}}_{\theta}\|_2^2$};
         \node[softbox, text width=1.95cm] (epstrue) at (14.3,-2.15) {\textbf{True noise}\\$\vect{\epsilon}$};
 
         \draw[arrow] (input) -- (enc);
