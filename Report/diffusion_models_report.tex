@@ -63,27 +63,25 @@
 \end{tikzpicture}
 
 \centering
-\vspace*{0.9cm}
-\includegraphics[width=2.8cm]{buet_logo.pdf}\\[0.55cm]
-{\Large\textbf{Bangladesh University of Engineering and Technology}}\\[0.2cm]
-{\large Department of Computer Science and Engineering}\\[0.2cm]
+\includegraphics[width=6cm]{buet_logo.pdf}\\[0.6cm]
+{\Large\textbf{BANGLADESH UNIVERSITY OF ENGINEERING AND TECHNOLOGY}}\\[0.5cm]
+{\large DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING}\\[0.5cm]
 {\large \textbf{CSE 200: Technical Writing and Presentation}}\\[1.3cm]
 \rule{0.85\linewidth}{0.8pt}\\[0.8cm]
 {\Huge\bfseries\color{AccentMain}\reporttitle}\\[0.3cm]
 {\Large An Overview of Progressive Denoising for Image Generation}\\[0.5cm]
 \rule{0.85\linewidth}{0.8pt}\\[0.8cm]
-\vspace{0.2cm}
 \vfill
 
 \begin{tabular}{>{\bfseries}p{4.0cm}p{8.3cm}}
     Subsection: & B2 \\
     Group: & 08 \\
     \addlinespace
-    Prepared by: & Anindya Biswas \dotfill Student ID: 2205107 \\
-             & Tasnim Tamal \dotfill Student ID: 2205110 \\
-             & Din Mohammad \dotfill Student ID: 2205113 \\
+    Prepared by: & Anindya Biswas \dotfill (2205107) \\
+             & Tasnim Tamal \dotfill (2205110) \\
+             & Din Mohammad \dotfill (2205113) \\
     \addlinespace
-    Date: & \today \\
+    Submission date: & \today \\
 \end{tabular}
 
 \vfill
@@ -91,15 +89,19 @@
 \hypersetup{pageanchor=true}
 
 \pagenumbering{roman}
+\begin{abstract}
+    \large
+    Diffusion models have become an important class of generative models because they can produce high-quality images without relying on adversarial training. Their basic idea is to gradually corrupt data with Gaussian noise and then learn how to reverse that process. This report explains the forward and reverse diffusion processes, the role of the U-Net architecture, and the standard noise-prediction objective used in Denoising Diffusion Probabilistic Models (DDPMs) \cite{ho2020ddpm,nichol2021improved}. It also briefly discusses faster sampling methods, latent diffusion, common evaluation metrics, and several well-known applications \cite{song2020ddim,rombach2022latent}. Finally, the report points out practical limitations such as slow sampling and high computational cost, along with broader concerns related to responsible use.
+\end{abstract}
+\newpage
+
 \tableofcontents
 \listoffigures
 \listoftables
+
 \newpage
 \pagenumbering{arabic}
 
-\section*{Abstract}
-\addcontentsline{toc}{section}{Abstract}
-Diffusion models have become an important class of generative models because they can produce high-quality images without relying on adversarial training. Their basic idea is to gradually corrupt data with Gaussian noise and then learn how to reverse that process. This report explains the forward and reverse diffusion processes, the role of the U-Net architecture, and the standard noise-prediction objective used in Denoising Diffusion Probabilistic Models (DDPMs) \cite{ho2020ddpm,nichol2021improved}. It also briefly discusses faster sampling methods, latent diffusion, common evaluation metrics, and several well-known applications \cite{song2020ddim,rombach2022latent}. Finally, the report points out practical limitations such as slow sampling and high computational cost, along with broader concerns related to responsible use.
 
 \section{Introduction}
 Generative modeling is concerned with learning the underlying distribution of data so that new samples can be produced from it. For images, this is difficult because realistic output must preserve both fine texture and overall structure. Diffusion models are especially interesting in this setting because the core idea is simple, yet the results are strong in practice \cite{ho2020ddpm,song2020ddim}. This line of work is also closely related to score-based generative modeling, where noisy samples are used to learn an iterative refinement process \cite{song2019generative}.
@@ -324,7 +326,7 @@ Table~\ref{tab:notation} collects the most important symbols used in the mathema
     \centering
     \begin{tabularx}{\linewidth}{>{\bfseries}p{2.2cm}X}
         \toprule
-        Symbol & Meaning \\
+        Symbol & Description \\
         \midrule
         $\vect{x}_0$ & A clean training sample drawn from the data distribution. \\
         $\vect{x}_t$ & The noisy version of the sample at diffusion step $t$. \\
@@ -367,9 +369,107 @@ These characteristics help explain why diffusion systems became competitive with
 \end{table}
 
 \section{How Performance is Evaluated}
-When papers claim better image quality, they usually support those claims with both visual examples and numerical metrics. One of the most common metrics is the Fr\'{e}chet Inception Distance (FID), which compares feature statistics of generated and real images; lower values are generally better \cite{heusel2017fid}. Many papers also report Inception Score (IS) and precision-recall style analyses to separate fidelity from diversity.
+Evaluating diffusion models is not straightforward because there are multiple aspects to consider. Researchers need to judge image quality, check that the model follows instructions correctly, and assess whether the model is actually generating diverse new images or just memorizing training data. To do this comprehensively, multiple evaluation metrics are typically used together.
 
-For conditional systems such as text-to-image models, image quality alone is not enough. The output should also follow the prompt while remaining realistic. In practice, this creates a trade-off between strict condition matching and natural-looking images, so most studies report multiple metrics rather than relying on only one.
+\begin{figure}[h]
+    \centering
+    \resizebox{0.85\linewidth}{!}{%
+    \begin{tikzpicture}[
+        font=\small,
+        category/.style={
+            rounded corners=8pt,
+            draw=AccentMain!60,
+            fill=BgElevated,
+            thick,
+            text width=3.2cm,
+            minimum height=1.6cm,
+            align=center,
+            inner sep=6pt
+        },
+        metric/.style={
+            rounded corners=5pt,
+            draw=TextMuted!50,
+            fill=BgSurface,
+            text width=2.4cm,
+            minimum height=1.0cm,
+            align=center,
+            inner sep=3pt,
+            font=\footnotesize
+        },
+        arrow/.style={-{Stealth[length=2.5mm]}, line width=1.0pt, draw=TextMuted!60}
+    ]
+        % Top Row
+        \node[category] (quality) at (0,4) {\textbf{Image Quality}\\realism \& clarity};
+        \node[category] (diversity) at (7,4) {\textbf{Diversity}\\coverage};
+        
+        \node[metric] (fid) at (-1.4,2) {\textbf{FID}\\feature distance};
+        \node[metric] (is) at (1.4,2) {\textbf{IS}\\clarity \& diversity};
+        \node[metric] (precision) at (5.6,2) {\textbf{Precision}\\realism};
+        \node[metric] (recall) at (8.4,2) {\textbf{Recall}\\coverage};
+
+        \draw[arrow] (quality) -- (fid);
+        \draw[arrow] (quality) -- (is);
+        \draw[arrow] (diversity) -- (precision);
+        \draw[arrow] (diversity) -- (recall);
+
+        % Bottom Row
+        \node[category] (alignment) at (0,0) {\textbf{Alignment}\\follow instructions};
+        \node[category] (efficiency) at (7,0) {\textbf{Efficiency}\\practical cost};
+
+        \node[metric] (clip) at (0,-2) {\textbf{CLIP Score}\\text matching};
+        \node[metric] (steps) at (5.6,-2) {\textbf{Steps}\\iterations};
+        \node[metric] (memory) at (8.4,-2) {\textbf{Memory}\\resources};
+
+        \draw[arrow] (alignment) -- (clip);
+        \draw[arrow] (efficiency) -- (steps);
+        \draw[arrow] (efficiency) -- (memory);
+    \end{tikzpicture}%
+    }
+    \caption[Evaluation metrics landscape]{Overview of evaluation metrics organized by the research concerns they address. Most papers report metrics from multiple categories to provide a complete picture.}
+    \label{fig:metrics-landscape}
+\end{figure}
+
+\subsection{Visual and Human Evaluation}
+The most direct way to assess whether an image looks good is simply to look at it. Papers about diffusion models usually include sample images showing what the model can generate, sometimes arranged in grids to showcase diversity or arranged side-by-side to compare against competing methods. Beyond just showing images, some studies conduct user studies where human raters score generated images on qualities like realism, clarity, and how well they match a given description. While human evaluation is time-consuming and subjective, it remains an important sanity check because humans are ultimately the audience for most generated images.
+
+\subsection{Fréchet Inception Distance (FID)}
+One widely used automatic metric is the Fréchet Inception Distance, or FID. The basic idea is to use a pre-trained image classification network (usually InceptionV3, trained on ImageNet) to extract feature representations from both real images and generated images. The FID metric then measures the statistical distance between these two sets of features---specifically, it computes the distance between the Gaussian distributions that best fit each set. Lower FID values indicate that generated images are statistically more similar to real images in terms of visual features \cite{heusel2017fid}. FID is popular because it correlates reasonably well with human perception of quality, but it is not perfect; it does not capture every aspect of what makes an image look realistic.
+
+\subsection{Inception Score (IS)}
+Another common metric is the Inception Score, which uses the same pre-trained InceptionV3 network but measures two things: first, whether generated images look clear and recognizable (high prediction confidence), and second, whether the model generates diverse images across different classes (high entropy across predictions). A good generative model should score high on both counts. The main limitation of IS is that it only works well for images of objects and classes that InceptionV3 was trained to recognize; it is less meaningful for artistic or abstract images.
+
+\subsection{Precision, Recall, and Fidelity-Diversity Trade-off}
+To separate the concepts of quality and diversity, researchers often compute precision and recall metrics. Precision measures what fraction of generated images are realistic (avoiding fake-looking outputs), while recall measures what fraction of the training data distribution is actually covered by the generated samples (avoiding mode collapse). These metrics help diagnose whether a model's failure is due to generating poor quality images or failing to explore the full range of possible outputs. In practice, there is often a trade-off: pushing the model to generate higher-quality images sometimes causes it to focus on safer, more typical examples and miss rare variations.
+
+\subsection{Text Alignment in Conditional Models}
+For text-to-image models, image quality alone is not sufficient because the output must also match the text prompt. Researchers use metrics like CLIP Score, which uses a pre-trained vision-language model (CLIP) to measure how well a generated image aligns with a given text description. A generated image gets a high score if CLIP thinks the image and text are closely related. This metric directly addresses the user's need: a beautiful image that completely ignores the prompt is not useful.
+
+\subsection{Computational Efficiency Metrics}
+Beyond image quality, practical deployment requires considering computational cost. Researchers often report how many denoising steps are needed for a model to produce acceptable results, how long generation takes on standard hardware, and how much GPU memory is consumed. These metrics matter because they determine whether a model can actually be used in real applications. A theoretically perfect model that requires a supercomputer is less useful than a slightly lower-quality model that runs on consumer hardware.
+
+\subsection{Why Multiple Metrics Matter}
+Because no single metric captures everything, research papers typically report several metrics together. A model with high FID but low Inception Score might be generating realistic-looking objects but missing diversity. A model with high CLIP Score but low FID might follow text prompts well but generate images with visual artifacts. By reporting multiple metrics---both automatic and human-based---researchers give readers a more complete picture of what the model can and cannot do well. When comparing two competing systems, differences in individual metrics can sometimes conflict, which is why the research community values both quantitative metrics and qualitative analysis. Ultimately, the right metric depends on the specific application: a model used for creative exploration might prioritize diversity, while a model used for product rendering might prioritize photorealism.
+
+\begin{table}[H]
+    \centering
+    \rowcolors{2}{BgBase}{white}
+    {\small
+    \begin{tabularx}{\linewidth}{>{\bfseries}p{2cm}>{\raggedright\arraybackslash}p{2.8cm}>{\raggedright\arraybackslash}p{2.8cm}>{\raggedright\arraybackslash}X}
+        \toprule
+        Metric & Measures & Direction & Key limitation \\
+        \midrule
+        FID & Statistical distance between real and generated features & Lower is better & Only uses pre-trained features \\
+        IS & Clarity \& diversity combined & Higher is better & Biased toward ImageNet categories \\
+        Precision & Realism of generated samples & Higher is better & Doesn't catch mode collapse \\
+        Recall & Coverage of training distribution & Higher is better & Doesn't guarantee realism \\
+        CLIP Score & Text-image alignment & Higher is better & Ignores visual artifacts \\
+        Human Eval & Subjective quality assessment & Context-dependent & Limited sample size \\
+        \bottomrule
+    \end{tabularx}
+    }
+    \caption[Evaluation metrics summary]{Common diffusion model evaluation metrics at a glance.}
+    \label{tab:metrics-comparison}
+\end{table}
 
 \section{Important Practical Variants}
 The basic DDPM formulation is enough to understand the core idea, but many real systems use modified samplers or compressed representations to make the method more practical. Two widely discussed examples are DDIM sampling \cite{song2020ddim} and latent diffusion \cite{rombach2022latent}. These variants do not change the main idea of progressive denoising; instead, they make the framework more usable in real settings.
@@ -385,9 +485,9 @@ Although the forward process is defined mathematically, it is helpful to think o
         font=\small
     ]
         \draw[-{Stealth[length=3mm]}, line width=1.0pt, draw=TextMuted] (0,0) -- (1.05,0)
-            node[right, align=left] {normalized\\timestep $t/T$};
+            node[right, align=left] {Normalized\\timestep $t/T$};
         \draw[-{Stealth[length=3mm]}, line width=1.0pt, draw=TextMuted] (0,0) -- (0,1.05)
-            node[above, align=center] {relative\\contribution};
+            node[above, align=center] {Relative\\contribution};
 
         \draw[AccentMain, line width=1.7pt]
             (0,0.92)
@@ -402,13 +502,13 @@ Although the forward process is defined mathematically, it is helpful to think o
         \draw[densely dotted, draw=TextMuted!55] (0.58,0) -- (0.58,0.64);
 
         \node[text=AccentMain, fill=white, inner sep=1.5pt] at (0.21,0.86)
-            {\scriptsize signal term $\sqrt{\alphabar_t}$};
+            {\scriptsize Signal term $\sqrt{\alphabar_t}$};
         \node[text=Highlight, fill=white, inner sep=1.5pt] at (0.82,0.83)
-            {\scriptsize noise term $\sqrt{1-\alphabar_t}$};
+            {\scriptsize Noise term $\sqrt{1-\alphabar_t}$};
         \node[text=TextMuted, align=center] at (1.0,0.5)
-            {\scriptsize gradual shift from mostly structured input\\\scriptsize to mostly noise-dominated input};
-        \node[text=TextMuted, below] at (0.12,0) {\scriptsize early};
-        \node[text=TextMuted, below] at (0.89,0) {\scriptsize late};
+            {\scriptsize Gradual shift from mostly structured input\\\scriptsize to mostly noise-dominated input};
+        \node[text=TextMuted, below] at (0.12,0) {\scriptsize Early};
+        \node[text=TextMuted, below] at (0.89,0) {\scriptsize Late};
     \end{tikzpicture}
     \caption[Conceptual signal-noise balance over time]{Conceptual signal-noise balance over diffusion timesteps. The plot is schematic and illustrates how the contribution of the original signal decreases while the contribution of noise increases.}
     \label{fig:signal-noise-balance}
@@ -497,7 +597,10 @@ This is one reason modern text-to-image systems can work at fairly high resoluti
 \end{table}
 
 \section{Applications}
-Diffusion models are no longer only a research topic. They now appear both in popular creative tools and in more specialized technical workflows. In everyday applications, they are used for text-to-image synthesis, image editing, artistic rendering, and increasingly for video generation. Figure~\ref{fig:application-logos} shows a few familiar systems associated with this broader family of methods.
+Diffusion models have moved beyond being a research curiosity and are now integrated into both popular consumer tools and specialized technical workflows. The versatility of the approach means that diffusion-based systems are useful across many different domains, from creative content generation to scientific research.
+
+\subsection{Text-to-Image Synthesis}
+One of the most visible applications of diffusion models is converting text descriptions into images. Systems like DALL-E, Midjourney, and Stable Diffusion allow users to describe what they want to see, and the model generates an image matching that description. This capability has democratized image creation by removing the need for drawing or photography skills. A designer can quickly prototype ideas, a writer can illustrate a concept for a story, or a marketer can generate ad copy images without hiring a photographer. These tools have become popular enough that they are now used in real professional workflows, though they still have limitations in understanding complex or unusual requests.
 
 \begin{figure}[H]
     \centering
@@ -518,16 +621,41 @@ Diffusion models are no longer only a research topic. They now appear both in po
         \includegraphics[width=0.68\linewidth,height=1.6cm,keepaspectratio]{sora_logo.png}
         \caption{Sora.}
     \end{subfigure}
-    \caption[Representative diffusion-based applications]{Examples of widely recognized systems associated with diffusion-based generation. The figure is illustrative rather than exhaustive.}
+    \caption[Representative diffusion-based applications]{Examples of widely recognized systems associated with diffusion-based generation and editing.}
     \label{fig:application-logos}
 \end{figure}
 
-Beyond creative media, diffusion models are also becoming relevant in technical domains. In medical imaging, researchers use them for denoising, reconstruction, and data augmentation. In scientific design, related models are being explored for molecule generation and inverse problems. Latent diffusion models further reduce the cost of high-resolution synthesis by performing denoising in a compressed latent space rather than directly in pixel space \cite{rombach2022latent}.
+\subsection{Image Editing and Manipulation}
+Beyond creating images from scratch, diffusion models can also be used to edit existing images. Instead of starting from random noise, the model can start from a partially noised version of an input image and then denoise it while respecting certain constraints. This allows for operations like inpainting (filling in missing regions), style transfer (applying one image's characteristics to another), or targeted object removal. These capabilities are beginning to appear in consumer photo editing software, making advanced image manipulation available to non-experts.
+
+\subsection{Artistic Rendering and Style Transfer}
+Diffusion models can be fine-tuned or conditioned to generate images in particular artistic styles. An artist might train a model on their own work or a particular aesthetic and then use it to create variations or explore new directions. Video game studios are exploring diffusion for quickly generating concept art, and entertainment companies use these models to speed up aspects of animation and rendering pipelines. While the results still often need human refinement, diffusion-based tools can help artists iterate faster.
+
+\subsection{Video Generation}
+Video generation is an emerging frontier. Systems like Sora demonstrate that diffusion models can be extended to generate short video clips from text descriptions or static images. Video generation is considerably harder than image generation because the model must maintain temporal coherence---objects should move smoothly, lighting and perspective should make sense across frames---but the same underlying denoising principles apply. As this technology matures, it could change how video content is produced, from special effects to previsualization of scenes.
+
+\subsection{Medical Imaging Applications}
+In healthcare, diffusion models are proving useful for several tasks. They can help denoise noisy medical scans to improve image clarity. They can reconstruct missing or corrupted parts of scans. They can also generate synthetic medical images for data augmentation, which is valuable in medical AI since real patient data is often limited and sensitive. Because medical imaging involves precise technical requirements, this application area requires careful validation, but the potential to improve diagnosis and reduce patient radiation exposure is significant.
+
+\subsection{Scientific and Design Applications}
+Beyond imaging, diffusion models are being explored in more specialized scientific contexts. Researchers are investigating their use for molecule generation in drug discovery, where the model learns to design new chemical structures that might be effective drugs. In engineering and design, diffusion can be applied to inverse problems---for example, optimizing material shapes or configurations to meet performance targets. These applications require adapting the core framework to work with non-image data, but the principle of iterative refinement remains powerful.
 
 \section{Limitations and Responsible Use}
-Despite their strengths, diffusion models still have several important limitations. The first is \textbf{slow sampling}: high-quality generation may require dozens to hundreds of denoising steps, which increases latency. The second is \textbf{high computational cost}: training large systems demands substantial GPU memory, long training times, and significant electrical power. The third is \textbf{system complexity}: practical deployments often rely on careful prompt conditioning, safety filters, and post-processing pipelines.
+Despite their strengths, diffusion models still have several important limitations and concerns that deserve careful attention.
 
-There are also broader ethical concerns. Diffusion models can reproduce harmful biases present in their training data, imitate artistic styles without consent, or be used to create misleading synthetic media. For that reason, technical progress should be considered alongside dataset transparency, usage policies, and clear attribution practices.
+\subsection{Slow Sampling}
+One major practical limitation is that generating a single high-quality image takes a long time. A typical diffusion model requires anywhere from 50 to 1000 denoising steps to produce a good result, and each step involves a full forward pass through the neural network. This means that on standard hardware, generating a single image might take anywhere from several seconds to a minute or more. For comparison, GANs or simpler models can produce images almost instantly. This slowness is a real problem when diffusion models are deployed in applications where users expect quick feedback, such as interactive design tools or mobile applications. Techniques like DDIM sampling help reduce this cost, but the fundamental trade-off between speed and quality remains a practical challenge.
+
+\subsection{High Computational Cost}
+Training a diffusion model from scratch is extremely expensive in terms of computation and energy. State-of-the-art image generation models require thousands of hours of GPU time on expensive hardware like NVIDIA A100 or H100 GPUs. Beyond just the hardware cost, this level of training consumes substantial electrical power, contributing to both financial expense and environmental impact. For researchers and organizations without access to large GPU clusters or cloud computing budgets, training a competitive model from scratch is simply not feasible. This creates a barrier to entry in the field and means that most practical applications rely on either fine-tuning smaller pre-trained models or using existing systems through APIs rather than training from the ground up.
+
+\subsection{System Complexity}
+Building a practical, production-ready diffusion system is more complex than just training the denoising network. In real deployments, many additional components are needed. For instance, text-to-image systems require a text encoder to understand the prompt, a separate module to handle numerical conditioning scores that balance how strictly the model should follow the prompt. Safety filters are often added to prevent generating harmful or inappropriate content. Post-processing pipelines may be needed to handle edge cases or improve the output. All of these components must work together carefully, and misconfiguring any of them can degrade results. This complexity makes deploying diffusion models in production more challenging than simply using a trained neural network.
+
+\subsection{Ethical and Social Concerns}
+Beyond technical limitations, there are important ethical issues to consider. Diffusion models trained on internet data can easily pick up and amplify societal biases present in their training data. If a training dataset contains stereotypes or skewed representations of certain groups, the model will likely reproduce or even exaggerate those patterns. Additionally, these models can learn to imitate the artistic style of contemporary artists without permission or recognition, raising questions about consent and intellectual property. Finally, diffusion models can be misused to create convincing fake videos or altered images---so-called \textit{deepfakes}---that spread misinformation.
+
+For these reasons, technical progress in diffusion models should be paired with responsible practices: datasets should be curated and documented transparently, usage policies should be clear about what the technology can and cannot be used for, and credit should be given appropriately to the artists and creators whose work influenced the model. Developers and organizations deploying these systems have a responsibility to think carefully about both the intended and potential unintended consequences of their work.
 
 \section{Conclusion}
 Overall, diffusion models show how a difficult generation problem can be broken into a sequence of smaller denoising steps. That is what makes the framework both interesting to study and useful in practice. It brings together probability, optimization, neural networks, and real image-generation systems in a way that is easier to follow than many earlier generative approaches.
